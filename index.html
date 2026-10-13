@@ -4,16 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#ffbc25">
+
 <title>KB손해보험 | 채용상담 신청</title>
 
 <style>
 *{box-sizing:border-box}
+
 body{
   margin:0;
   background:#f7f7f7;
   color:#222;
   font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif;
 }
+
 .wrap{
   max-width:540px;
   margin:auto;
@@ -21,44 +24,52 @@ body{
   background:#fff;
   padding:24px 22px 100px;
 }
+
 .brand{
   font-size:14px;
   font-weight:800;
   color:#805b00;
 }
+
 .bar{
   height:5px;
   background:#eee;
   border-radius:6px;
   margin:28px 0 35px;
 }
+
 .fill{
   height:100%;
   width:50%;
   background:#ffb600;
   border-radius:6px;
-  transition:.2s;
+  transition:.25s;
 }
+
 h1{
   font-size:29px;
   line-height:1.35;
   margin:5px 0 12px;
 }
+
 .sub{
   color:#666;
   font-size:14px;
   line-height:1.6;
   margin-bottom:28px;
 }
+
 .small{
   font-size:12px;
   color:#666;
 }
+
 label{
   display:block;
   font-weight:700;
   margin:22px 0 10px;
 }
+
 input,select{
   width:100%;
   border:1px solid #d7d7d7;
@@ -67,14 +78,18 @@ input,select{
   font:inherit;
   background:#fff;
 }
+
 input:focus,select:focus{
   outline:2px solid #ffbf35;
+  border-color:transparent;
 }
+
 .choices{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
 }
+
 .choices label{
   font-weight:500;
   margin:0;
@@ -84,9 +99,11 @@ input:focus,select:focus{
   flex:1;
   white-space:nowrap;
 }
+
 .choices input{
   width:auto;
 }
+
 .info{
   background:#fff8e7;
   padding:16px;
@@ -95,20 +112,25 @@ input:focus,select:focus{
   line-height:1.7;
   margin-top:24px;
 }
+
 .agree{
   font-weight:400;
   font-size:13px;
   line-height:1.6;
 }
+
 .agree input{
   width:auto;
   vertical-align:middle;
+  margin-right:5px;
 }
+
 .actions{
   display:flex;
   gap:10px;
   margin-top:28px;
 }
+
 button,.link{
   display:block;
   text-align:center;
@@ -123,26 +145,71 @@ button,.link{
   cursor:pointer;
   flex:1;
 }
+
 button:disabled{
   background:#e6e6e6;
   color:#999;
+  cursor:not-allowed;
 }
+
 .back{
   background:#eee;
   flex:0 0 85px;
 }
+
 .hidden{
+  display:none !important;
+}
+
+.success{
+  text-align:center;
+  padding:35px 4px 10px;
+}
+
+.successIcon{
+  width:76px;
+  height:76px;
+  border-radius:50%;
+  background:#fff3ce;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 24px;
+  font-size:38px;
+}
+
+.success h1{
+  font-size:28px;
+}
+
+.successText{
+  font-size:16px;
+  line-height:1.8;
+  color:#555;
+  margin:20px 0 30px;
+}
+
+.kakao{
+  background:#fee500;
+}
+
+.notice{
+  font-size:12px;
+  color:#777;
+  line-height:1.7;
+  margin-top:18px;
+}
+
+.error{
+  background:#fff0f0;
+  border-radius:10px;
+  padding:12px;
+  font-size:13px;
+  color:#b3261e;
+  margin-top:16px;
   display:none;
 }
-.copybox{
-  white-space:pre-wrap;
-  background:#f6f6f6;
-  border:1px solid #ddd;
-  padding:16px;
-  border-radius:12px;
-  font-size:14px;
-  line-height:1.7;
-}
+
 .footer{
   border-top:1px solid #eee;
   margin-top:50px;
@@ -151,18 +218,27 @@ button:disabled{
   font-size:12px;
   line-height:1.9;
 }
+
+iframe{
+  display:none;
+}
 </style>
 </head>
 
 <body>
+
 <main class="wrap">
 
-<div class="brand">KB손해보험 · 보험설계사 모집</div>
+<div class="brand">
+  KB손해보험 · 보험설계사 모집
+</div>
 
-<div class="bar">
+<div class="bar" id="progressBar">
   <div class="fill" id="fill"></div>
 </div>
 
+
+<!-- 1단계 -->
 <section id="step1">
 
   <div class="small">1 / 2</div>
@@ -173,42 +249,58 @@ button:disabled{
   </h1>
 
   <p class="sub">
-    거주지역을 알려주시면 모집 가능 지역과
-    상담 절차를 안내해 드립니다.
+    거주지역을 알려주시면
+    모집 가능 지역과 상담 절차를 안내해 드립니다.
   </p>
 
-  <label for="province">시/도</label>
+  <label for="province">
+    시/도
+  </label>
 
   <select id="province">
-    <option value="">시/도를 선택해 주세요</option>
+    <option value="">
+      시/도를 선택해 주세요
+    </option>
   </select>
 
-  <label for="district">시/군/구</label>
+  <label for="district">
+    시/군/구
+  </label>
 
   <select id="district" disabled>
-    <option value="">시/도를 먼저 선택해 주세요</option>
+    <option value="">
+      시/도를 먼저 선택해 주세요
+    </option>
   </select>
 
   <div class="actions">
+
     <button id="next" disabled>
       다음 →
     </button>
+
   </div>
 
 </section>
 
 
+<!-- 2단계 -->
 <section id="step2" class="hidden">
 
   <div class="small">2 / 2</div>
 
-  <h1>간편 채용상담 신청</h1>
+  <h1>
+    간편 채용상담 신청
+  </h1>
 
   <p class="sub">
     상담에 필요한 기본 정보만 입력해 주세요.
   </p>
 
-  <label for="name">성함</label>
+
+  <label for="name">
+    성함
+  </label>
 
   <input
     id="name"
@@ -242,20 +334,12 @@ button:disabled{
       남성
     </label>
 
-    <label>
-      <input
-        type="radio"
-        name="gender"
-        value="선택 안 함"
-        checked
-      >
-      선택 안 함
-    </label>
-
   </div>
 
 
-  <label>경력 유무</label>
+  <label>
+    경력 유무
+  </label>
 
   <div class="choices">
 
@@ -272,7 +356,7 @@ button:disabled{
       <input
         type="radio"
         name="career"
-        value="보험설계사 경력 있음"
+        value="경력있음(3년이내)"
       >
       경력 있음
     </label>
@@ -280,7 +364,9 @@ button:disabled{
   </div>
 
 
-  <label for="phone">연락처</label>
+  <label for="phone">
+    연락처
+  </label>
 
   <input
     id="phone"
@@ -293,14 +379,14 @@ button:disabled{
 
   <div class="info">
 
-    <strong>개인정보 안내</strong><br>
+    <strong>개인정보 수집·이용 안내</strong><br>
 
-    입력하신 내용은 이 웹사이트의 서버에
-    저장되지 않습니다.
+    입력하신 정보는 채용상담 신청 확인 및
+    담당자의 연락을 위해 사용됩니다.<br>
 
-    신청 내용을 확인·복사한 뒤
-    카카오톡 오픈채팅에서 지원자가
-    직접 전송하는 방식입니다.
+    수집 항목:
+    성함, 연락처, 거주지역, 경력유무
+    및 선택 입력한 성별
 
   </div>
 
@@ -312,16 +398,22 @@ button:disabled{
       id="agree"
     >
 
-    위 내용을 확인했으며,
-    상담을 위해 입력한 정보를
-    카카오톡에서 직접 전송하는 데 동의합니다.
+    채용상담을 위한 개인정보 수집·이용에
+    동의합니다.
 
   </label>
+
+
+  <div id="errorMessage" class="error">
+    신청 중 문제가 발생했습니다.
+    잠시 후 다시 시도해 주세요.
+  </div>
 
 
   <div class="actions">
 
     <button
+      type="button"
       class="back"
       id="back"
     >
@@ -329,10 +421,11 @@ button:disabled{
     </button>
 
     <button
-      id="review"
+      type="button"
+      id="submitApplication"
       disabled
     >
-      신청 내용 확인
+      지원 신청하기
     </button>
 
   </div>
@@ -340,78 +433,113 @@ button:disabled{
 </section>
 
 
-<section id="step3" class="hidden">
+<!-- 완료 -->
+<section id="success" class="hidden success">
+
+  <div class="successIcon">
+    🎉
+  </div>
 
   <div class="small">
-    신청 내용 확인
+    신청 완료
   </div>
 
   <h1>
-    카카오톡으로<br>
-    상담을 이어가세요
+    지원 신청이<br>
+    완료되었습니다!
   </h1>
 
-  <p class="sub">
-    아래 내용을 복사한 뒤
-    오픈채팅에서 붙여넣어 보내주세요.
-  </p>
+  <div class="successText">
 
-  <div
-    id="summary"
-    class="copybox"
-  ></div>
+    소중한 지원 감사합니다.<br><br>
 
+    접수된 내용을 확인 후<br>
 
-  <div class="actions">
-
-    <button
-      class="back"
-      id="edit"
-    >
-      수정
-    </button>
-
-    <button id="copy">
-      ① 내용 복사
-    </button>
+    <strong>
+      담당자가 순차적으로 연락드리겠습니다.
+    </strong>
 
   </div>
 
 
-  <div class="actions">
+  <a
+    class="link kakao"
+    href="https://open.kakao.com/o/sHUNVh3g"
+    target="_blank"
+    rel="noopener"
+  >
+    카카오톡으로 궁금한 점 문의하기
+  </a>
 
-    <a
-      class="link"
-      href="https://open.kakao.com/o/sHUNVh3g"
-      target="_blank"
-      rel="noopener"
-    >
-      ② 카카오톡 상담 열기 ↗
-    </a>
+
+  <div class="notice">
+
+    카카오톡 문의는 선택사항입니다.<br>
+
+    이미 지원 신청은 정상적으로 접수되었습니다.
 
   </div>
-
-
-  <p class="small">
-
-    ※ 카카오톡을 열기만 하면 신청이
-    완료되지 않습니다.
-
-    복사한 신청 내용을 채팅창에
-    붙여넣고 전송해 주세요.
-
-  </p>
 
 </section>
+
+
+<!-- Google Form 자동 제출용 -->
+<form
+  id="googleForm"
+  action="https://docs.google.com/forms/d/e/1FAIpQLSfqiKZty3guGXttsS_8k09dx1qZQj3K9oEzCLbQ_cMCRw4Ycw/formResponse"
+  method="POST"
+  target="hidden_iframe"
+  class="hidden"
+>
+
+  <input
+    type="hidden"
+    name="entry.132483954"
+    id="googleRegion"
+  >
+
+  <input
+    type="hidden"
+    name="entry.2001001879"
+    id="googleName"
+  >
+
+  <input
+    type="hidden"
+    name="entry.1346414485"
+    id="googleCareer"
+  >
+
+  <input
+    type="hidden"
+    name="entry.1489540463"
+    id="googlePhone"
+  >
+
+  <input
+    type="hidden"
+    name="entry.989834395"
+    id="googleGender"
+  >
+
+</form>
+
+
+<iframe
+  name="hidden_iframe"
+  id="hidden_iframe"
+></iframe>
 
 
 <footer class="footer">
 
 <strong>사업자 정보</strong><br>
 
-사업자명: 에이치앤에이치(H&amp;H)<br>
+사업자명:
+에이치앤에이치(H&amp;H)<br>
 
-사업자등록번호: 495-27-01131<br>
+사업자등록번호:
+495-27-01131<br>
 
 소재지:
 경기도 분당구 성남대로 906, 3층
@@ -563,11 +691,14 @@ document.getElementById("step1");
 const step2 =
 document.getElementById("step2");
 
-const step3 =
-document.getElementById("step3");
+const success =
+document.getElementById("success");
 
 const fill =
 document.getElementById("fill");
+
+const progressBar =
+document.getElementById("progressBar");
 
 const nameEl =
 document.getElementById("name");
@@ -578,11 +709,21 @@ document.getElementById("phone");
 const agree =
 document.getElementById("agree");
 
-const review =
-document.getElementById("review");
+const submitButton =
+document.getElementById("submitApplication");
 
-const summary =
-document.getElementById("summary");
+const googleForm =
+document.getElementById("googleForm");
+
+const iframe =
+document.getElementById("hidden_iframe");
+
+const errorMessage =
+document.getElementById("errorMessage");
+
+
+let formSubmitted=false;
+let completed=false;
 
 
 Object.keys(areas).forEach(function(area){
@@ -629,8 +770,7 @@ district.addEventListener(
 "change",
 function(){
 
-  next.disabled =
-  !district.value;
+  next.disabled=!district.value;
 
 });
 
@@ -654,13 +794,16 @@ function validateForm(){
 
   const career =
   document.querySelector(
-  'input[name="career"]:checked'
+    'input[name="career"]:checked'
   );
 
-  review.disabled =
+  const phoneDigits =
+  phone.value.replace(/\D/g,"");
+
+  submitButton.disabled =
   !(
     nameEl.value.trim() &&
-    phone.value.trim() &&
+    phoneDigits.length >= 10 &&
     career &&
     agree.checked
   );
@@ -672,6 +815,7 @@ nameEl.addEventListener(
 "input",
 validateForm
 );
+
 
 agree.addEventListener(
 "change",
@@ -686,8 +830,8 @@ document
 .forEach(function(item){
 
   item.addEventListener(
-  "change",
-  validateForm
+    "change",
+    validateForm
   );
 
 });
@@ -705,15 +849,15 @@ function(){
   if(value.length>7){
 
     value=value.replace(
-    /(\d{3})(\d{4})(\d+)/,
-    "$1-$2-$3"
+      /(\d{3})(\d{4})(\d+)/,
+      "$1-$2-$3"
     );
 
   }else if(value.length>3){
 
     value=value.replace(
-    /(\d{3})(\d+)/,
-    "$1-$2"
+      /(\d{3})(\d+)/,
+      "$1-$2"
     );
 
   }
@@ -742,83 +886,116 @@ function(){
 });
 
 
-review.addEventListener(
+submitButton.addEventListener(
 "click",
 function(){
 
-  const gender =
-  document.querySelector(
-  'input[name="gender"]:checked'
-  ).value;
+  if(submitButton.disabled){
+    return;
+  }
 
   const career =
   document.querySelector(
-  'input[name="career"]:checked'
-  ).value;
+    'input[name="career"]:checked'
+  );
 
-  summary.textContent =
-  "[KB손해보험 채용상담 신청]\n" +
-  "성함: " +
-  nameEl.value.trim() +
-  "\n거주지역: " +
-  province.value +
-  " " +
-  district.value +
-  "\n성별: " +
-  gender +
-  "\n경력: " +
-  career +
-  "\n연락처: " +
-  phone.value.trim();
+  const gender =
+  document.querySelector(
+    'input[name="gender"]:checked'
+  );
 
-  step2.classList.add("hidden");
+  if(!career){
+    return;
+  }
 
-  step3.classList.remove("hidden");
 
-  window.scrollTo(0,0);
+  document.getElementById(
+    "googleRegion"
+  ).value =
+    province.value + " " + district.value;
+
+
+  document.getElementById(
+    "googleName"
+  ).value =
+    nameEl.value.trim();
+
+
+  document.getElementById(
+    "googleCareer"
+  ).value =
+    career.value;
+
+
+  document.getElementById(
+    "googlePhone"
+  ).value =
+    phone.value.trim();
+
+
+  document.getElementById(
+    "googleGender"
+  ).value =
+    gender ? gender.value : "";
+
+
+  submitButton.disabled=true;
+
+  submitButton.textContent=
+    "접수 중...";
+
+  errorMessage.style.display="none";
+
+  formSubmitted=true;
+
+  googleForm.submit();
+
+
+  /*
+    모바일 환경에서 Google Forms의
+    iframe 응답이 지연되는 경우를 대비한
+    안전 타이머
+  */
+
+  setTimeout(function(){
+
+    if(formSubmitted && !completed){
+
+      showSuccess();
+
+    }
+
+  },2500);
 
 });
 
 
-document
-.getElementById("edit")
-.addEventListener(
-"click",
+iframe.addEventListener(
+"load",
 function(){
 
-  step3.classList.add("hidden");
+  if(formSubmitted && !completed){
 
-  step2.classList.remove("hidden");
-
-  window.scrollTo(0,0);
-
-});
-
-
-document
-.getElementById("copy")
-.addEventListener(
-"click",
-async function(){
-
-  try{
-
-    await navigator.clipboard.writeText(
-      summary.textContent
-    );
-
-    this.textContent =
-    "복사 완료 ✓";
-
-  }catch(error){
-
-    alert(
-      "신청 내용을 길게 눌러 복사해 주세요."
-    );
+    showSuccess();
 
   }
 
 });
+
+
+function showSuccess(){
+
+  completed=true;
+
+  step2.classList.add("hidden");
+
+  success.classList.remove("hidden");
+
+  progressBar.classList.add("hidden");
+
+  window.scrollTo(0,0);
+
+}
 
 </script>
 
