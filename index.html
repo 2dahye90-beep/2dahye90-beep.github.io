@@ -239,7 +239,7 @@ iframe{
 
 
 <!-- 채용 소개 이미지 -->
-<div style="
+<div id="recruitIntro" style="
   margin:0 0 32px 0;
   text-align:center;
 ">
@@ -1011,7 +1011,7 @@ function showSuccess(){
   completed=true;
 
   step2.classList.add("hidden");
-
+document.getElementById("recruitIntro").classList.add("hidden");
   success.classList.remove("hidden");
 
   progressBar.classList.add("hidden");
