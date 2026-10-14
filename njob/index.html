@@ -969,7 +969,11 @@ document
 
 });
 
-
+document
+  .querySelectorAll('input[name="gender"], input[name="job"], input[name="time"]')
+  .forEach(function(item){
+    item.addEventListener("change", validateForm);
+  });
 phone.addEventListener(
 "input",
 function(){
