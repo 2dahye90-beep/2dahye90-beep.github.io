@@ -7,63 +7,93 @@
 <title>KB손해보험 N잡러 지원 안내</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#fff9e9;color:#302414;font-family:system-ui,'Noto Sans KR',sans-serif;line-height:1.6}
-main{max-width:620px;margin:auto}
-.hero{padding:30px 24px 40px;background:linear-gradient(145deg,#fffdf7,#ffe17b);border-radius:0 0 35px 35px}
-.brand{font-weight:900;font-size:22px}
-.brand span{color:#e8a500}
-.tag{display:inline-block;background:white;border-radius:25px;padding:8px 16px;margin-top:32px;font-weight:800}
-h1{font-size:clamp(34px,9vw,52px);line-height:1.25;letter-spacing:-2px}
-h1 em{font-style:normal;color:#a35c00}
-.btn{display:block;text-align:center;background:#47301b;color:white;text-decoration:none;border-radius:17px;padding:18px;font-size:18px;font-weight:800;margin-top:22px}
-.content{padding:25px 20px}
-h2{font-size:24px;letter-spacing:-1px}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.card{background:white;border:1px solid #f2e5c5;border-radius:19px;padding:19px 14px}
-.card strong{display:block;margin:8px 0}
-.card small{color:#6b6258}
-.notice{background:white;border-radius:20px;padding:20px;margin-top:25px}
-.notice p{font-size:14px}
-.bottom{background:#ffe18a;border-radius:22px;padding:22px;margin-top:25px;text-align:center}
-footer{text-align:center;padding:20px;font-size:12px;color:#71685e}
-@media(max-width:350px){.cards{grid-template-columns:1fr}}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff9e9;color:#342719;font-family:system-ui,'Noto Sans KR',sans-serif;line-height:1.65}
+main{max-width:720px;margin:auto}
+.hero{background:linear-gradient(135deg,#fffdf7,#ffe18a);padding:30px 24px 44px;border-radius:0 0 32px 32px}
+.brand{font-size:21px;font-weight:900}
+.brand b{color:#d99a00}
+.pill{display:inline-block;margin-top:28px;background:white;padding:8px 15px;border-radius:30px;font-size:13px;font-weight:800}
+h1{font-size:clamp(32px,8vw,49px);line-height:1.3;letter-spacing:-1.5px}
+h1 em{font-style:normal;color:#9b5b06}
+.btn{display:block;background:#49331d;color:white;text-decoration:none;text-align:center;border-radius:15px;padding:17px;font-weight:800;margin-top:24px}
+.section{padding:30px 20px 0}
+.sub{color:#a16b12;font-size:12px;font-weight:900;letter-spacing:1px}
+h2{font-size:25px;letter-spacing:-1px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card,.panel{background:white;border:1px solid #eee1c9;border-radius:19px;padding:19px}
+.card strong{display:block;margin:10px 0 5px}
+.card p,.panel p{font-size:14px;color:#65594b}
+.step{padding:13px 0;border-bottom:1px solid #eee5d8}
+.step:last-child{border:0}
+.num{display:inline-block;background:#ffe49a;padding:3px 11px;border-radius:30px;margin-right:8px;font-weight:900}
+details{padding:15px 0;border-bottom:1px solid #eee5d8}
+details:last-child{border:0}
+summary{font-weight:800;cursor:pointer}
+.formbox{background:white;border:1px solid #eee1c9;border-radius:20px;padding:18px 10px}
+.formbox iframe{display:block;width:100%;height:1500px;border:0}
+.notice{padding:24px;font-size:12px;color:#716658}
+footer{text-align:center;padding:25px;font-size:12px;color:#716658}
+@media(max-width:350px){.grid{grid-template-columns:1fr}.formbox iframe{height:1650px}}
 </style>
 </head>
 <body>
 <main>
-<section class="hero">
-<div class="brand"><span>✳</span> KB손해보험</div>
-<div class="tag">N잡러 모집 안내</div>
+<header class="hero">
+<div class="brand"><b>✳</b> KB손해보험</div>
+<div class="pill">N잡러 활동 안내 · 지원 접수</div>
 <h1>본업은 그대로,<br><em>새로운 가능성을 더하다.</em></h1>
-<p>지금 하고 있는 일을 이어가면서<br>새로운 활동에 도전해 보세요.</p>
-<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeM-DESKhNw-KKKL1qplZMic1Dbsv8_e7wip6CdFu0cSv7m2w/viewform">N잡러 지원 신청하기 →</a>
-</section>
-<div class="content">
+<p>지금 하고 있는 일을 이어가면서<br>새로운 분야에 도전해 보세요.</p>
+<a class="btn" href="#apply">N잡러 지원 신청하기 →</a>
+</header>
+
+<section class="section">
+<div class="sub">NEW OPPORTUNITY</div>
 <h2>이런 분들의 관심을 기다려요</h2>
-<div class="cards">
-<div class="card">💼<strong>본업과 병행을 고민하는 분</strong><small>현재 일과 함께 새로운 활동을 알아보세요.</small></div>
-<div class="card">🌱<strong>새로운 분야에 도전할 분</strong><small>관련 경력이 없어도 상담 가능합니다.</small></div>
-<div class="card">📚<strong>교육 내용이 궁금한 분</strong><small>교육 및 활동 절차를 안내해 드립니다.</small></div>
-<div class="card">📞<strong>먼저 설명을 듣고 싶은 분</strong><small>간단한 신청 후 담당자와 상담해 보세요.</small></div>
+<div class="grid">
+<div class="card">💼<strong>본업과 병행을 고민하는 분</strong><p>현재 일과 함께 새로운 활동을 알아보세요.</p></div>
+<div class="card">🌱<strong>새로운 분야에 도전할 분</strong><p>경력이 없어도 활동 내용을 상담할 수 있어요.</p></div>
+<div class="card">📚<strong>교육 내용이 궁금한 분</strong><p>교육 및 위촉 절차를 안내해 드립니다.</p></div>
+<div class="card">📞<strong>먼저 설명을 듣고 싶은 분</strong><p>신청 후 담당자와 자세히 상담해 보세요.</p></div>
 </div>
+</section>
+
+<section class="section">
+<div class="sub">HOW TO APPLY</div>
+<h2>지원 절차는 간단해요</h2>
+<div class="panel">
+<div class="step"><span class="num">1</span><strong>지원서 작성</strong><p>성함, 연락처 등 기본 정보를 남겨주세요.</p></div>
+<div class="step"><span class="num">2</span><strong>담당자 안내</strong><p>신청 내용을 확인한 후 순차적으로 연락드립니다.</p></div>
+<div class="step"><span class="num">3</span><strong>활동 조건 확인</strong><p>위촉 요건, 교육, 보수 체계 등을 상담합니다.</p></div>
+</div>
+</section>
+
+<section class="section">
+<div class="sub">FAQ</div>
+<h2>궁금한 점을 확인해 보세요</h2>
+<div class="panel">
+<details><summary>현재 직장이 있어도 가능한가요?</summary><p>직장의 겸업 규정과 보험설계사 위촉 요건에 따라 달라질 수 있습니다.</p></details>
+<details><summary>관련 경력이 없어도 되나요?</summary><p>활동 안내는 받을 수 있으며, 실제 위촉에는 필요한 교육 및 자격 요건 충족이 필요합니다.</p></details>
+<details><summary>고정급이 있나요?</summary><p>일반적인 고정급 사무직 채용이 아닌 보험설계사 위촉 관련 모집입니다. 보수는 조건과 실적에 따라 달라지며 수입은 보장되지 않습니다.</p></details>
+</div>
+</section>
+
+<section class="section" id="apply">
+<div class="sub">APPLICATION</div>
+<h2>N잡러 지원 신청</h2>
+<div class="formbox">
+<p>아래 신청서를 작성하고 제출해 주세요.</p>
+<iframe title="N잡러 지원 신청서" src="https://docs.google.com/forms/d/e/1FAIpQLSeM-DESKhNw-KKKL1qplZMic1Dbsv8_e7wip6CdFu0cSv7m2w/viewform?embedded=true" loading="lazy"></iframe>
+<p>신청서가 보이지 않는다면 <a href="https://docs.google.com/forms/d/e/1FAIpQLSeM-DESKhNw-KKKL1qplZMic1Dbsv8_e7wip6CdFu0cSv7m2w/viewform" target="_blank" rel="noopener noreferrer">여기를 눌러주세요.</a></p>
+</div>
+</section>
+
 <div class="notice">
-<h2>지원 안내</h2>
-<p>① 신청폼에 성함과 연락처를 남겨주세요.</p>
-<p>② 담당자가 연락 가능한 시간에 안내드립니다.</p>
-<p>③ 활동 형태, 위촉 요건, 교육 및 보수 조건은 상담을 통해 확인하실 수 있습니다.</p>
-<p><strong>안내:</strong> 보험설계사 위촉 관련 모집이며 일반적인 고정급 사무직 채용과 다를 수 있습니다. 겸업 가능 여부는 현재 직장 규정 등에 따라 확인이 필요하며 수입은 보장되지 않습니다.</p>
+<p><strong>활동 안내:</strong> 보험설계사 위촉 관련 모집이며 일반적인 고정급 근로계약과 다를 수 있습니다.</p>
+<p><strong>개인정보 안내:</strong> 신청서 내 개인정보 수집·이용 내용을 확인해 주세요. 실제 모집 주체 및 보유기간은 게시 전 확인이 필요합니다.</p>
+<p><strong>광고 안내:</strong> 모집 주체, 연락처, 준법감시 및 필수 고지사항을 확인하고 필요한 승인을 받은 후 광고에 사용해 주세요.</p>
 </div>
-<div class="bottom">
-<h2>새로운 도전, 지금 시작해 보세요!</h2>
-<p>간단한 신청으로 활동 내용을 안내받으세요.</p>
-<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeM-DESKhNw-KKKL1qplZMic1Dbsv8_e7wip6CdFu0cSv7m2w/viewform">N잡러 지원 신청하기 →</a>
-</div>
-</div>
-<footer>
-<p>KB손해보험 N잡러 활동 안내 페이지</p>
-<p>실제 활동 및 위촉 조건은 별도 확인이 필요합니다.</p>
-<p>광고 게시 전 모집 주체, 필수 고지 및 준법감시 기준을 확인해 주세요.</p>
-</footer>
+<footer>KB손해보험 N잡러 활동 안내 페이지</footer>
 </main>
 </body>
 </html>
