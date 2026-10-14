@@ -1,99 +1,1026 @@
-
 <!doctype html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KB손해보험 N잡러 지원 안내</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffbc25">
+
+<title>KB손해보험 | 채용상담 신청</title>
+
 <style>
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:#fff9e9;color:#342719;font-family:system-ui,'Noto Sans KR',sans-serif;line-height:1.65}
-main{max-width:720px;margin:auto}
-.hero{background:linear-gradient(135deg,#fffdf7,#ffe18a);padding:30px 24px 44px;border-radius:0 0 32px 32px}
-.brand{font-size:21px;font-weight:900}
-.brand b{color:#d99a00}
-.pill{display:inline-block;margin-top:28px;background:white;padding:8px 15px;border-radius:30px;font-size:13px;font-weight:800}
-h1{font-size:clamp(32px,8vw,49px);line-height:1.3;letter-spacing:-1.5px}
-h1 em{font-style:normal;color:#9b5b06}
-.btn{display:block;background:#49331d;color:white;text-decoration:none;text-align:center;border-radius:15px;padding:17px;font-weight:800;margin-top:24px}
-.section{padding:30px 20px 0}
-.sub{color:#a16b12;font-size:12px;font-weight:900;letter-spacing:1px}
-h2{font-size:25px;letter-spacing:-1px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.card,.panel{background:white;border:1px solid #eee1c9;border-radius:19px;padding:19px}
-.card strong{display:block;margin:10px 0 5px}
-.card p,.panel p{font-size:14px;color:#65594b}
-.step{padding:13px 0;border-bottom:1px solid #eee5d8}
-.step:last-child{border:0}
-.num{display:inline-block;background:#ffe49a;padding:3px 11px;border-radius:30px;margin-right:8px;font-weight:900}
-details{padding:15px 0;border-bottom:1px solid #eee5d8}
-details:last-child{border:0}
-summary{font-weight:800;cursor:pointer}
-.formbox{background:white;border:1px solid #eee1c9;border-radius:20px;padding:18px 10px}
-.formbox iframe{display:block;width:100%;height:1500px;border:0}
-.notice{padding:24px;font-size:12px;color:#716658}
-footer{text-align:center;padding:25px;font-size:12px;color:#716658}
-@media(max-width:350px){.grid{grid-template-columns:1fr}.formbox iframe{height:1650px}}
+
+body{
+  margin:0;
+  background:#f7f7f7;
+  color:#222;
+  font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif;
+}
+
+.wrap{
+  max-width:540px;
+  margin:auto;
+  min-height:100vh;
+  background:#fff;
+  padding:24px 22px 100px;
+}
+
+.brand{
+  font-size:14px;
+  font-weight:800;
+  color:#805b00;
+}
+
+.bar{
+  height:5px;
+  background:#eee;
+  border-radius:6px;
+  margin:28px 0 35px;
+}
+
+.fill{
+  height:100%;
+  width:50%;
+  background:#ffb600;
+  border-radius:6px;
+  transition:.25s;
+}
+
+h1{
+  font-size:29px;
+  line-height:1.35;
+  margin:5px 0 12px;
+}
+
+.sub{
+  color:#666;
+  font-size:14px;
+  line-height:1.6;
+  margin-bottom:28px;
+}
+
+.small{
+  font-size:12px;
+  color:#666;
+}
+
+label{
+  display:block;
+  font-weight:700;
+  margin:22px 0 10px;
+}
+
+input,select{
+  width:100%;
+  border:1px solid #d7d7d7;
+  border-radius:12px;
+  padding:16px;
+  font:inherit;
+  background:#fff;
+}
+
+input:focus,select:focus{
+  outline:2px solid #ffbf35;
+  border-color:transparent;
+}
+
+.choices{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.choices label{
+  font-weight:500;
+  margin:0;
+  border:1px solid #ddd;
+  border-radius:10px;
+  padding:12px;
+  flex:1;
+  white-space:nowrap;
+}
+
+.choices input{
+  width:auto;
+}
+
+.info{
+  background:#fff8e7;
+  padding:16px;
+  border-radius:12px;
+  font-size:13px;
+  line-height:1.7;
+  margin-top:24px;
+}
+
+.agree{
+  font-weight:400;
+  font-size:13px;
+  line-height:1.6;
+}
+
+.agree input{
+  width:auto;
+  vertical-align:middle;
+  margin-right:5px;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:28px;
+}
+
+button,.link{
+  display:block;
+  text-align:center;
+  border:0;
+  border-radius:12px;
+  background:#ffbb21;
+  padding:16px;
+  font:inherit;
+  font-weight:800;
+  color:#222;
+  text-decoration:none;
+  cursor:pointer;
+  flex:1;
+}
+
+button:disabled{
+  background:#e6e6e6;
+  color:#999;
+  cursor:not-allowed;
+}
+
+.back{
+  background:#eee;
+  flex:0 0 85px;
+}
+
+.hidden{
+  display:none !important;
+}
+
+.success{
+  text-align:center;
+  padding:35px 4px 10px;
+}
+
+.successIcon{
+  width:76px;
+  height:76px;
+  border-radius:50%;
+  background:#fff3ce;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 24px;
+  font-size:38px;
+}
+
+.success h1{
+  font-size:28px;
+}
+
+.successText{
+  font-size:16px;
+  line-height:1.8;
+  color:#555;
+  margin:20px 0 30px;
+}
+
+.kakao{
+  background:#fee500;
+}
+
+.notice{
+  font-size:12px;
+  color:#777;
+  line-height:1.7;
+  margin-top:18px;
+}
+
+.error{
+  background:#fff0f0;
+  border-radius:10px;
+  padding:12px;
+  font-size:13px;
+  color:#b3261e;
+  margin-top:16px;
+  display:none;
+}
+
+.footer{
+  border-top:1px solid #eee;
+  margin-top:50px;
+  padding-top:20px;
+  color:#777;
+  font-size:12px;
+  line-height:1.9;
+}
+
+iframe{
+  display:none;
+}
 </style>
 </head>
+
 <body>
-<main>
-<header class="hero">
-<div class="brand"><b>✳</b> KB손해보험</div>
-<div class="pill">N잡러 활동 안내 · 지원 접수</div>
-<h1>본업은 그대로,<br><em>새로운 가능성을 더하다.</em></h1>
-<p>지금 하고 있는 일을 이어가면서<br>새로운 분야에 도전해 보세요.</p>
-<a class="btn" href="#apply">N잡러 지원 신청하기 →</a>
-</header>
 
-<section class="section">
-<div class="sub">NEW OPPORTUNITY</div>
-<h2>이런 분들의 관심을 기다려요</h2>
-<div class="grid">
-<div class="card">💼<strong>본업과 병행을 고민하는 분</strong><p>현재 일과 함께 새로운 활동을 알아보세요.</p></div>
-<div class="card">🌱<strong>새로운 분야에 도전할 분</strong><p>경력이 없어도 활동 내용을 상담할 수 있어요.</p></div>
-<div class="card">📚<strong>교육 내용이 궁금한 분</strong><p>교육 및 위촉 절차를 안내해 드립니다.</p></div>
-<div class="card">📞<strong>먼저 설명을 듣고 싶은 분</strong><p>신청 후 담당자와 자세히 상담해 보세요.</p></div>
+<main class="wrap">
+
+<div class="brand">
+  KB손해보험 · 보험설계사 모집
 </div>
+
+<div class="bar" id="progressBar">
+  <div class="fill" id="fill"></div>
+</div>
+
+
+<!-- 채용 소개 이미지 -->
+<div id="recruitIntro" style="
+  margin:0 0 32px 0;
+  text-align:center;
+">
+  <img
+    src="file_00000000fe308207ac9ee44fe44f68e9.png"
+    alt="KB손해보험 보험설계사 신입·경력 모집 안내"
+    style="
+      display:block;
+      width:100%;
+      height:auto;
+      margin:0 auto;
+      border-radius:20px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.08);
+    "
+  >
+</div>
+
+<!-- 1단계 -->
+<section id="step1">
+
+  <div class="small">1 / 2</div>
+
+  <h1>
+    어느 지역에<br>
+    거주하시나요?
+  </h1>
+
+  <p class="sub">
+    거주지역을 알려주시면
+    모집 가능 지역과 상담 절차를 안내해 드립니다.
+  </p>
+
+  <label for="province">
+    시/도
+  </label>
+
+  <select id="province">
+    <option value="">
+      시/도를 선택해 주세요
+    </option>
+  </select>
+
+  <label for="district">
+    시/군/구
+  </label>
+
+  <select id="district" disabled>
+    <option value="">
+      시/도를 먼저 선택해 주세요
+    </option>
+  </select>
+
+  <div class="actions">
+
+    <button id="next" disabled>
+      다음 →
+    </button>
+
+  </div>
+
 </section>
 
-<section class="section">
-<div class="sub">HOW TO APPLY</div>
-<h2>지원 절차는 간단해요</h2>
-<div class="panel">
-<div class="step"><span class="num">1</span><strong>지원서 작성</strong><p>성함, 연락처 등 기본 정보를 남겨주세요.</p></div>
-<div class="step"><span class="num">2</span><strong>담당자 안내</strong><p>신청 내용을 확인한 후 순차적으로 연락드립니다.</p></div>
-<div class="step"><span class="num">3</span><strong>활동 조건 확인</strong><p>위촉 요건, 교육, 보수 체계 등을 상담합니다.</p></div>
-</div>
+
+<!-- 2단계 -->
+<section id="step2" class="hidden">
+
+  <div class="small">2 / 2</div>
+
+  <h1>
+    간편 채용상담 신청
+  </h1>
+
+  <p class="sub">
+    상담에 필요한 기본 정보만 입력해 주세요.
+  </p>
+
+
+  <label for="name">
+    성함
+  </label>
+
+  <input
+    id="name"
+    autocomplete="name"
+    placeholder="성함을 입력해 주세요"
+  >
+
+
+  <label>
+    성별
+    <span class="small">(선택)</span>
+  </label>
+
+  <div class="choices">
+
+    <label>
+      <input
+        type="radio"
+        name="gender"
+        value="여성"
+      >
+      여성
+    </label>
+
+    <label>
+      <input
+        type="radio"
+        name="gender"
+        value="남성"
+      >
+      남성
+    </label>
+
+  </div>
+
+
+  <label>
+    경력 유무
+  </label>
+
+  <div class="choices">
+
+    <label>
+      <input
+        type="radio"
+        name="career"
+        value="신입"
+      >
+      신입
+    </label>
+
+    <label>
+      <input
+        type="radio"
+        name="career"
+        value="경력있음(3년이내)"
+      >
+      경력 있음
+    </label>
+
+  </div>
+
+
+  <label for="phone">
+    연락처
+  </label>
+
+  <input
+    id="phone"
+    type="tel"
+    inputmode="numeric"
+    autocomplete="tel"
+    placeholder="010-0000-0000"
+  >
+
+
+  <div class="info">
+
+    <strong>개인정보 수집·이용 안내</strong><br>
+
+    입력하신 정보는 채용상담 신청 확인 및
+    담당자의 연락을 위해 사용됩니다.<br>
+
+    수집 항목:
+    성함, 연락처, 거주지역, 경력유무
+    및 선택 <br>입력한 성별
+
+  </div>
+
+
+<label class="agree">
+
+  <input
+    type="checkbox"
+    id="agree"
+  >
+
+  [필수] 개인정보 수집·이용에 동의합니다.<br>
+  <span style="font-size:13px; color:#777; line-height:1.6;">
+    수집항목: 성함, 연락처, 거주지역, 성별, 경력유무<br>
+    이용목적: 채용상담 및 지원자 연락<br>
+    보유기간: 수집일로부터 6개월 후 파기<br>
+    ※ 동의를 거부할 수 있으나, 거부 시 채용상담 신청이 <br>어렵습니다.
+  </span>
+
+</label>
+
+  <div id="errorMessage" class="error">
+    신청 중 문제가 발생했습니다.
+    잠시 후 다시 시도해 주세요.
+  </div>
+
+
+  <div class="actions">
+
+    <button
+      type="button"
+      class="back"
+      id="back"
+    >
+      이전
+    </button>
+
+    <button
+      type="button"
+      id="submitApplication"
+      disabled
+    >
+      지원 신청하기
+    </button>
+
+  </div>
+
 </section>
 
-<section class="section">
-<div class="sub">FAQ</div>
-<h2>궁금한 점을 확인해 보세요</h2>
-<div class="panel">
-<details><summary>현재 직장이 있어도 가능한가요?</summary><p>직장의 겸업 규정과 보험설계사 위촉 요건에 따라 달라질 수 있습니다.</p></details>
-<details><summary>관련 경력이 없어도 되나요?</summary><p>활동 안내는 받을 수 있으며, 실제 위촉에는 필요한 교육 및 자격 요건 충족이 필요합니다.</p></details>
-<details><summary>고정급이 있나요?</summary><p>일반적인 고정급 사무직 채용이 아닌 보험설계사 위촉 관련 모집입니다. 보수는 조건과 실적에 따라 달라지며 수입은 보장되지 않습니다.</p></details>
-</div>
+
+<!-- 완료 -->
+<section id="success" class="hidden success">
+
+  <div class="successIcon">
+    🎉
+  </div>
+
+  <div class="small">
+    신청 완료
+  </div>
+
+  <h1>
+    지원 신청이<br>
+    완료되었습니다!
+  </h1>
+
+  <div class="successText">
+
+    소중한 지원 감사합니다.<br><br>
+
+    접수된 내용을 확인 후<br>
+
+    <strong>
+      담당자가 순차적으로 연락드리겠습니다.
+    </strong>
+
+  </div>
+
+
+  <a
+    class="link kakao"
+    href="https://open.kakao.com/o/sHUNVh3g"
+    target="_blank"
+    rel="noopener"
+  >
+    카카오톡으로 궁금한 점 문의하기
+  </a>
+
+
+  <div class="notice">
+
+    카카오톡 문의는 선택사항입니다.<br>
+
+    이미 지원 신청은 정상적으로 접수되었습니다.
+
+  </div>
+
 </section>
 
-<section class="section" id="apply">
-<div class="sub">APPLICATION</div>
-<h2>N잡러 지원 신청</h2>
-<div class="formbox">
-<p>아래 신청서를 작성하고 제출해 주세요.</p>
-<iframe title="N잡러 지원 신청서" src="https://docs.google.com/forms/d/e/1FAIpQLSeM-DESKhNw-KKKL1qplZMic1Dbsv8_e7wip6CdFu0cSv7m2w/viewform?embedded=true" loading="lazy"></iframe>
-<p>신청서가 보이지 않는다면 <a href="https://docs.google.com/forms/d/e/1FAIpQLSeM-DESKhNw-KKKL1qplZMic1Dbsv8_e7wip6CdFu0cSv7m2w/viewform" target="_blank" rel="noopener noreferrer">여기를 눌러주세요.</a></p>
-</div>
-</section>
 
-<div class="notice">
-<p><strong>활동 안내:</strong> 보험설계사 위촉 관련 모집이며 일반적인 고정급 근로계약과 다를 수 있습니다.</p>
-<p><strong>개인정보 안내:</strong> 신청서 내 개인정보 수집·이용 내용을 확인해 주세요. 실제 모집 주체 및 보유기간은 게시 전 확인이 필요합니다.</p>
-<p><strong>광고 안내:</strong> 모집 주체, 연락처, 준법감시 및 필수 고지사항을 확인하고 필요한 승인을 받은 후 광고에 사용해 주세요.</p>
-</div>
-<footer>KB손해보험 N잡러 활동 안내 페이지</footer>
+<!-- Google Form 자동 제출용 -->
+<form
+  id="googleForm"
+  action="https://docs.google.com/forms/d/e/1FAIpQLSfqiKZty3guGXttsS_8k09dx1qZQj3K9oEzCLbQ_cMCRw4Ycw/formResponse"
+  method="POST"
+  target="hidden_iframe"
+  class="hidden"
+>
+
+  <input
+    type="hidden"
+    name="entry.132483954"
+    id="googleRegion"
+  >
+
+  <input
+    type="hidden"
+    name="entry.2001001879"
+    id="googleName"
+  >
+
+  <input
+    type="hidden"
+    name="entry.1346414485"
+    id="googleCareer"
+  >
+
+  <input
+    type="hidden"
+    name="entry.1489540463"
+    id="googlePhone"
+  >
+
+  <input
+    type="hidden"
+    name="entry.989834395"
+    id="googleGender"
+  >
+
+</form>
+
+
+<iframe
+  name="hidden_iframe"
+  id="hidden_iframe"
+></iframe>
+
+
+<footer class="footer">
+
+<strong>사업자 정보</strong><br>
+
+사업자명:
+에이치앤에이치(H&amp;H)<br>
+
+사업자등록번호:
+495-27-01131<br>
+
+소재지:
+경기도 분당구 성남대로 906, 3층
+
+<br><br>
+
+본 페이지는 보험설계사 모집 및
+상담 안내를 위한 페이지입니다.
+
+보수와 지원금 등 세부 조건은
+상담 시 안내 내용을 확인해 주세요.
+
+</footer>
+
 </main>
+
+
+<script>
+
+const areas={
+
+"서울특별시":[
+"강남구","강동구","강북구","강서구",
+"관악구","광진구","구로구","금천구",
+"노원구","도봉구","동대문구","동작구",
+"마포구","서대문구","서초구","성동구",
+"성북구","송파구","양천구","영등포구",
+"용산구","은평구","종로구","중구","중랑구"
+],
+
+"부산광역시":[
+"강서구","금정구","기장군","남구",
+"동구","동래구","부산진구","북구",
+"사상구","사하구","서구","수영구",
+"연제구","영도구","중구","해운대구"
+],
+
+"대구광역시":[
+"군위군","남구","달서구","달성군",
+"동구","북구","서구","수성구","중구"
+],
+
+"인천광역시":[
+"강화군","계양구","남동구","동구",
+"미추홀구","부평구","서구","연수구",
+"옹진군","중구"
+],
+
+"광주광역시":[
+"광산구","남구","동구","북구","서구"
+],
+
+"대전광역시":[
+"대덕구","동구","서구","유성구","중구"
+],
+
+"울산광역시":[
+"남구","동구","북구","울주군","중구"
+],
+
+"세종특별자치시":[
+"세종시"
+],
+
+"경기도":[
+"가평군","고양시","과천시","광명시",
+"광주시","구리시","군포시","김포시",
+"남양주시","동두천시","부천시","성남시",
+"수원시","시흥시","안산시","안성시",
+"안양시","양주시","양평군","여주시",
+"연천군","오산시","용인시","의왕시",
+"의정부시","이천시","파주시","평택시",
+"포천시","하남시","화성시"
+],
+
+"강원특별자치도":[
+"강릉시","고성군","동해시","삼척시",
+"속초시","양구군","양양군","영월군",
+"원주시","인제군","정선군","철원군",
+"춘천시","태백시","평창군","홍천군",
+"화천군","횡성군"
+],
+
+"충청북도":[
+"괴산군","단양군","보은군","영동군",
+"옥천군","음성군","제천시","증평군",
+"진천군","청주시","충주시"
+],
+
+"충청남도":[
+"계룡시","공주시","금산군","논산시",
+"당진시","보령시","부여군","서산시",
+"서천군","아산시","예산군","천안시",
+"청양군","태안군","홍성군"
+],
+
+"전북특별자치도":[
+"고창군","군산시","김제시","남원시",
+"무주군","부안군","순창군","완주군",
+"익산시","임실군","장수군","전주시",
+"정읍시","진안군"
+],
+
+"전라남도":[
+"강진군","고흥군","곡성군","광양시",
+"구례군","나주시","담양군","목포시",
+"무안군","보성군","순천시","신안군",
+"여수시","영광군","영암군","완도군",
+"장성군","장흥군","진도군","함평군",
+"해남군","화순군"
+],
+
+"경상북도":[
+"경산시","경주시","고령군","구미시",
+"김천시","문경시","봉화군","상주시",
+"성주군","안동시","영덕군","영양군",
+"영주시","영천시","예천군","울릉군",
+"울진군","의성군","청도군","청송군",
+"칠곡군","포항시"
+],
+
+"경상남도":[
+"거제시","거창군","고성군","김해시",
+"남해군","밀양시","사천시","산청군",
+"양산시","의령군","진주시","창녕군",
+"창원시","통영시","하동군","함안군",
+"함양군","합천군"
+],
+
+"제주특별자치도":[
+"서귀포시","제주시"
+]
+
+};
+
+
+const province =
+document.getElementById("province");
+
+const district =
+document.getElementById("district");
+
+const next =
+document.getElementById("next");
+
+const step1 =
+document.getElementById("step1");
+
+const step2 =
+document.getElementById("step2");
+
+const success =
+document.getElementById("success");
+
+const fill =
+document.getElementById("fill");
+
+const progressBar =
+document.getElementById("progressBar");
+
+const nameEl =
+document.getElementById("name");
+
+const phone =
+document.getElementById("phone");
+
+const agree =
+document.getElementById("agree");
+
+const submitButton =
+document.getElementById("submitApplication");
+
+const googleForm =
+document.getElementById("googleForm");
+
+const iframe =
+document.getElementById("hidden_iframe");
+
+const errorMessage =
+document.getElementById("errorMessage");
+
+
+let formSubmitted=false;
+let completed=false;
+
+
+Object.keys(areas).forEach(function(area){
+
+  province.add(
+    new Option(area,area)
+  );
+
+});
+
+
+province.addEventListener(
+"change",
+function(){
+
+  district.innerHTML =
+  '<option value="">시/군/구를 선택해 주세요</option>';
+
+  if(province.value){
+
+    areas[province.value].forEach(
+    function(area){
+
+      district.add(
+        new Option(area,area)
+      );
+
+    });
+
+    district.disabled=false;
+
+  }else{
+
+    district.disabled=true;
+
+  }
+
+  next.disabled=true;
+
+});
+
+
+district.addEventListener(
+"change",
+function(){
+
+  next.disabled=!district.value;
+
+});
+
+
+next.addEventListener(
+"click",
+function(){
+
+  step1.classList.add("hidden");
+
+  step2.classList.remove("hidden");
+document.getElementById("recruitIntro").style.display="none";
+  fill.style.width="100%";
+
+  window.scrollTo(0,0);
+
+});
+
+
+function validateForm(){
+
+  const career =
+  document.querySelector(
+    'input[name="career"]:checked'
+  );
+
+  const phoneDigits =
+  phone.value.replace(/\D/g,"");
+
+  submitButton.disabled =
+  !(
+    nameEl.value.trim() &&
+    phoneDigits.length >= 10 &&
+    career &&
+    agree.checked
+  );
+
+}
+
+
+nameEl.addEventListener(
+"input",
+validateForm
+);
+
+
+agree.addEventListener(
+"change",
+validateForm
+);
+
+
+document
+.querySelectorAll(
+'input[name="career"]'
+)
+.forEach(function(item){
+
+  item.addEventListener(
+    "change",
+    validateForm
+  );
+
+});
+
+
+phone.addEventListener(
+"input",
+function(){
+
+  let value =
+  phone.value
+  .replace(/\D/g,"")
+  .slice(0,11);
+
+  if(value.length>7){
+
+    value=value.replace(
+      /(\d{3})(\d{4})(\d+)/,
+      "$1-$2-$3"
+    );
+
+  }else if(value.length>3){
+
+    value=value.replace(
+      /(\d{3})(\d+)/,
+      "$1-$2"
+    );
+
+  }
+
+  phone.value=value;
+
+  validateForm();
+
+});
+
+
+document
+.getElementById("back")
+.addEventListener(
+"click",
+function(){
+
+  step2.classList.add("hidden");
+
+  step1.classList.remove("hidden");
+document.getElementById("recruitIntro").style.display="block";
+  fill.style.width="50%";
+
+  window.scrollTo(0,0);
+
+});
+
+
+submitButton.addEventListener(
+"click",
+function(){
+
+  if(submitButton.disabled){
+    return;
+  }
+
+  const career =
+  document.querySelector(
+    'input[name="career"]:checked'
+  );
+
+  const gender =
+  document.querySelector(
+    'input[name="gender"]:checked'
+  );
+
+  if(!career){
+    return;
+  }
+
+
+  document.getElementById(
+    "googleRegion"
+  ).value =
+    province.value + " " + district.value;
+
+
+  document.getElementById(
+    "googleName"
+  ).value =
+    nameEl.value.trim();
+
+
+  document.getElementById(
+    "googleCareer"
+  ).value =
+    career.value;
+
+
+  document.getElementById(
+    "googlePhone"
+  ).value =
+    phone.value.trim();
+
+
+  document.getElementById(
+    "googleGender"
+  ).value =
+    gender ? gender.value : "";
+
+
+  submitButton.disabled=true;
+
+  submitButton.textContent=
+    "접수 중...";
+
+  errorMessage.style.display="none";
+
+  formSubmitted=true;
+
+  googleForm.submit();
+
+
+  /*
+    모바일 환경에서 Google Forms의
+    iframe 응답이 지연되는 경우를 대비한
+    안전 타이머
+  */
+
+  setTimeout(function(){
+
+    if(formSubmitted && !completed){
+
+      showSuccess();
+
+    }
+
+  },2500);
+
+});
+
+
+iframe.addEventListener(
+"load",
+function(){
+
+  if(formSubmitted && !completed){
+
+    showSuccess();
+
+  }
+
+});
+
+
+function showSuccess(){
+
+  completed=true;
+
+  step2.classList.add("hidden");
+document.getElementById("recruitIntro").style.display = "none";
+  success.classList.remove("hidden");
+
+  progressBar.classList.add("hidden");
+
+  window.scrollTo(0,0);
+
+}
+
+</script>
+
 </body>
 </html>
