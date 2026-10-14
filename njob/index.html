@@ -851,21 +851,32 @@ document.getElementById("recruitIntro").style.display="none";
 function validateForm(){
 
   const career =
-  document.querySelector(
-    'input[name="career"]:checked'
-  );
+    document.querySelector(
+      'input[name="career"]:checked'
+    );
+
+  const gender =
+    document.querySelector(
+      'input[name="gender"]:checked'
+    );
+
+  const job =
+    document.querySelector(
+      'input[name="job"]:checked'
+    );
 
   const phoneDigits =
-  phone.value.replace(/\D/g,"");
+    phone.value.replace(/\D/g,"");
 
   submitButton.disabled =
-  !(
-    nameEl.value.trim() &&
-    phoneDigits.length >= 10 &&
-    career &&
-    agree.checked
-  );
-
+    !(
+      nameEl.value.trim() &&
+      phoneDigits.length >= 10 &&
+      career &&
+      gender &&
+      job &&
+      agree.checked
+    );
 }
 
 
