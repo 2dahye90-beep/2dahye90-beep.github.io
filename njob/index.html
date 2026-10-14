@@ -471,6 +471,25 @@ iframe{
     >
       이전
     </button>
+      <div class="field">
+  <label>상담 가능 시간대</label>
+
+  <div class="radioGrid">
+    <label><input type="radio" name="time" value="오전 9시~10시"> 오전 9시~10시</label>
+    <label><input type="radio" name="time" value="오전 10시~11시"> 오전 10시~11시</label>
+    <label><input type="radio" name="time" value="오전 11시~12시"> 오전 11시~12시</label>
+    <label><input type="radio" name="time" value="오후 12시~1시"> 오후 12시~1시</label>
+    <label><input type="radio" name="time" value="오후 1시~2시"> 오후 1시~2시</label>
+    <label><input type="radio" name="time" value="오후 2시~3시"> 오후 2시~3시</label>
+    <label><input type="radio" name="time" value="오후 3시~4시"> 오후 3시~4시</label>
+    <label><input type="radio" name="time" value="오후 4시~5시"> 오후 4시~5시</label>
+    <label><input type="radio" name="time" value="오후 5시~6시"> 오후 5시~6시</label>
+    <label><input type="radio" name="time" value="오후 6~7시"> 오후 6~7시</label>
+    <label><input type="radio" name="time" value="오후 7시~8시"> 오후 7시~8시</label>
+    <label><input type="radio" name="time" value="시간 관계 없음"> 시간 관계 없음</label>
+  </div>
+      </div>
+  
 
     <button
       type="button"
@@ -579,6 +598,23 @@ iframe{
   type="hidden"
   name="entry.577118216"
   id="googleJob"
+>
+  <input
+  type="hidden"
+  name="entry.1381022051"
+  id="googleGender"
+>
+
+<input
+  type="hidden"
+  name="entry.2049872882"
+  id="googleCareer"
+>
+
+  <input
+  type="hidden"
+  name="entry.541500721"
+  id="googleTime"
 >
 </form>
 
@@ -864,7 +900,10 @@ function validateForm(){
     document.querySelector(
       'input[name="job"]:checked'
     );
-
+const time =
+  document.querySelector(
+    'input[name="time"]:checked'
+  );
   const phoneDigits =
     phone.value.replace(/\D/g,"");
 
@@ -875,6 +914,7 @@ function validateForm(){
       career &&
       gender &&
       job &&
+      time &&
       agree.checked
     );
 }
@@ -1012,8 +1052,13 @@ document.getElementById(
   "googleJob"
 ).value = job ? job.value : "";
 
+  document.getElementById(
+  "googleTime"
+).value = time ? time.value : "";
+
 document.getElementById(
   "googleAgree"
+
 ).value = "네, 동의합니다.";
   submitButton.disabled=true;
 
