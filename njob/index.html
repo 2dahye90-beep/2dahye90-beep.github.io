@@ -354,7 +354,36 @@ iframe{
     </label>
 
   </div>
+<label>
+  현재 직업
+</label>
 
+<div class="choices">
+  <label>
+    <input type="radio" name="job" value="직장인">
+    직장인
+  </label>
+
+  <label>
+    <input type="radio" name="job" value="자영업자">
+    자영업자
+  </label>
+
+  <label>
+    <input type="radio" name="job" value="프리랜서">
+    프리랜서
+  </label>
+
+  <label>
+    <input type="radio" name="job" value="주부">
+    주부
+  </label>
+
+  <label>
+    <input type="radio" name="job" value="기타">
+    기타
+  </label>
+</div>
 
   <label>
     경력 유무
@@ -544,7 +573,23 @@ iframe{
     name="entry.989834395"
     id="googleGender"
   >
+<input
+  type="hidden"
+  name="entry.541500721"
+  id="googleTime"
+>
 
+<input
+  type="hidden"
+  name="entry.1001718124"
+  id="googleAgree"
+>
+
+<input
+  type="hidden"
+  name="entry.577118216"
+  id="googleJob"
+>
 </form>
 
 
@@ -960,7 +1005,11 @@ function(){
     "googleGender"
   ).value =
     gender ? gender.value : "";
+const job = document.querySelector('input[name="job"]:checked');
 
+document.getElementById(
+  "googleJob"
+).value = job ? job.value : "";
 
   submitButton.disabled=true;
 
