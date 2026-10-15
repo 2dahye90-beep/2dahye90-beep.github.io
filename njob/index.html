@@ -1090,7 +1090,18 @@ document.getElementById(
 
   formSubmitted=true;
 
-  googleForm.submit();
+  const prefillUrl =
+  "https://docs.google.com/forms/d/e/1FAIpQLSeM-DESKhNw-KKKL1qplZMic1Dbsv8_e7wip6CdFu0cSv7m2w/viewform?usp=pp_url"
+  + "&entry.362982893=" + encodeURIComponent(nameEl.value.trim())
+  + "&entry.357240702=" + encodeURIComponent(phone.value.trim())
+  + "&entry.670909663=" + encodeURIComponent(province.value + " " + district.value)
+  + "&entry.577118216=" + encodeURIComponent(job ? job.value : "")
+  + "&entry.1381022051=" + encodeURIComponent(gender ? gender.value : "")
+  + "&entry.2049872882=" + encodeURIComponent(career.value)
+  + "&entry.541500721=" + encodeURIComponent(time ? time.value : "")
+  + "&entry.1001718124=" + encodeURIComponent("네, 동의합니다.");
+
+window.location.href = prefillUrl;
 
 
   /*
