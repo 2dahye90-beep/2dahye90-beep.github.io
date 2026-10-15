@@ -600,7 +600,11 @@ iframe{
   name="entry.357240702"
     id="googlePhone"
   >
-  
+  <input
+  type="hidden"
+  name="entry.670909663"
+  id="googleRegion"
+>
 <input
   type="hidden"
   name="entry.541500721"
@@ -1055,7 +1059,10 @@ function(){
   ).value =
     phone.value.trim();
 
-
+document.getElementById(
+  "googleRegion"
+).value =
+  province.value + " " + district.value;
   document.getElementById(
     "googleGender"
   ).value =
