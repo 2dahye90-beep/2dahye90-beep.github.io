@@ -1090,18 +1090,30 @@ document.getElementById(
 
   formSubmitted=true;
 
-  const prefillUrl =
-  "https://docs.google.com/forms/d/e/1FAIpQLSeM-DESKhNw-KKKL1qplZMic1Dbsv8_e7wip6CdFu0cSv7m2w/viewform?usp=pp_url"
-  + "&entry.362982893=" + encodeURIComponent(nameEl.value.trim())
-  + "&entry.357240702=" + encodeURIComponent(phone.value.trim())
-  + "&entry.670909663=" + encodeURIComponent(province.value + " " + district.value)
-  + "&entry.577118216=" + encodeURIComponent(job ? job.value : "")
-  + "&entry.1381022051=" + encodeURIComponent(gender ? gender.value : "")
-  + "&entry.2049872882=" + encodeURIComponent(career.value)
-  + "&entry.541500721=" + encodeURIComponent(time ? time.value : "")
-  + "&entry.1001718124=" + encodeURIComponent("네, 동의합니다.");
+ const scriptUrl =
+  "https://script.google.com/macros/s/AKfycbxOIYIR_9FrkCyBECSRNBQ7PgKOp3jR_51jaqUInY9W1hXx924C-H6_aaqVcFZzQNYS/exec";
 
-window.location.href = prefillUrl;
+const data = new URLSearchParams();
+
+data.append("name", nameEl.value.trim());
+data.append("phone", phone.value.trim());
+data.append(
+  "region",
+  province.value + " " + district.value
+);
+data.append("job", job ? job.value : "");
+data.append("gender", gender ? gender.value : "");
+data.append("career", career.value);
+data.append("time", time ? time.value : "");
+data.append("consent", "yes");
+
+fetch(scriptUrl, {
+  method: "POST",
+  body: data,
+  mode: "no-cors"
+});
+
+showSuccess();
 
 
   /*
