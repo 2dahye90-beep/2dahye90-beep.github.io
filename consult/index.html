@@ -616,14 +616,24 @@ function submitConsult(){
   error.style.display="none";
 
 
-  /*
-   다음 단계에서
-   새 상담접수 Apps Script 주소를
-   이 부분에 연결합니다.
+  const scriptUrl =
+  "https://script.google.com/macros/s/AKfycbzpFgCXf7jj3Q-VhgKqHfbq75ILWRq8eK6VUCjIrDFEqnzfizVGVAi0ApkUCOMvJbH8/exec";
 
-   기존 N잡러 Apps Script는
-   절대 사용하지 않습니다.
-  */
+const data = new URLSearchParams();
+
+data.append("name", name);
+data.append("phone", phone);
+data.append("consultType", type.value);
+data.append("age", age);
+data.append("contactTime", contactTime);
+data.append("message", "");
+data.append("consent", "yes");
+
+fetch(scriptUrl, {
+  method: "POST",
+  body: data,
+  mode: "no-cors"
+});
 
 
   document.getElementById("choice").style.display="none";
