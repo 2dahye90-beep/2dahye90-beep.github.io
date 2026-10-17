@@ -651,6 +651,24 @@ fetch(scriptUrl, {
 
 }
 
+
+const phoneInput = document.getElementById("phone");
+
+phoneInput.addEventListener("input", function () {
+  let number = this.value.replace(/[^0-9]/g, "").slice(0, 11);
+
+  if (number.length <= 3) {
+    this.value = number;
+  } else if (number.length <= 7) {
+    this.value = number.slice(0, 3) + "-" + number.slice(3);
+  } else {
+    this.value =
+      number.slice(0, 3) + "-" +
+      number.slice(3, 7) + "-" +
+      number.slice(7);
+  }
+});
+
 </script>
 
 </body>
