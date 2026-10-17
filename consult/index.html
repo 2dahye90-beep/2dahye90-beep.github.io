@@ -283,6 +283,63 @@ footer{
   .hero h1{font-size:29px}
   .cards{grid-template-columns:1fr}
 }
+
+  /* 궁금한 내용 선택 카드 */
+.inquiry-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 12px;
+  margin-bottom: 14px;
+}
+
+.inquiry-option {
+  display: block;
+  cursor: pointer;
+}
+
+.inquiry-option input {
+  display: none;
+}
+
+.inquiry-option span {
+  display: flex;
+  align-items: center;
+  min-height: 58px;
+  padding: 12px 14px;
+  box-sizing: border-box;
+
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+
+  transition: all 0.2s ease;
+}
+
+/* 선택했을 때 KB 옐로우 */
+.inquiry-option input:checked + span {
+  background: #fff7d6;
+  border: 2px solid #ffcc00;
+  color: #111;
+  box-shadow: 0 4px 12px rgba(255, 204, 0, 0.15);
+}
+
+/* 선택 체크 표시 */
+.inquiry-option input:checked + span::after {
+  content: "✓";
+  margin-left: auto;
+  font-weight: 800;
+  color: #c99a00;
+}
+
+/* 추가 문의 입력창 */
+#memo {
+  margin-top: 4px;
+}
 </style>
 </head>
 
@@ -475,12 +532,48 @@ footer{
   </div>
 
 
-  <div class="field">
-    <label for="memo">궁금한 내용 (선택)</label>
+ <div class="field">
+  <label>궁금한 내용 <span style="color:#888;">(복수 선택 가능)</span></label>
 
-    <textarea id="memo"
-    placeholder="궁금한 내용을 간단히 남겨주세요"></textarea>
+  <div class="inquiry-options">
+
+    <label class="inquiry-option">
+      <input type="checkbox" name="inquiryType" value="보험금 청구 문의">
+      <span>📄 보험금 청구 문의</span>
+    </label>
+
+    <label class="inquiry-option">
+      <input type="checkbox" name="inquiryType" value="가입한 보험 문의">
+      <span>🔎 가입한 보험 문의</span>
+    </label>
+
+    <label class="inquiry-option">
+      <input type="checkbox" name="inquiryType" value="보장내용 확인">
+      <span>🛡️ 보장내용 확인</span>
+    </label>
+
+    <label class="inquiry-option">
+      <input type="checkbox" name="inquiryType" value="가족 보험 상담">
+      <span>👨‍👩‍👧 가족 보험 상담</span>
+    </label>
+
+    <label class="inquiry-option">
+      <input type="checkbox" name="inquiryType" value="보험 가입 상담">
+      <span>💬 보험 가입 상담</span>
+    </label>
+
+    <label class="inquiry-option">
+      <input type="checkbox" name="inquiryType" value="기타 문의">
+      <span>✨ 기타 문의</span>
+    </label>
+
   </div>
+
+  <textarea
+    id="memo"
+    placeholder="추가로 궁금한 내용이 있다면 남겨주세요"
+  ></textarea>
+ </div>
 
 
   <div class="consent">
@@ -593,7 +686,20 @@ function submitConsult(){
 
   const contactTime =
     document.getElementById("contactTime").value;
+const inquiryTypes = Array.from(
+  document.querySelectorAll('input[name="inquiryType"]:checked')
+).map(function(item) {
+  return item.value;
+});
 
+const inquiryText = inquiryTypes.join(", ");
+
+const memo =
+  document.getElementById("memo").value.trim();
+
+const message = [inquiryText, memo]
+  .filter(Boolean)
+  .join(" / ");
   const consent =
     document.getElementById("consent").checked;
 
@@ -626,7 +732,7 @@ data.append("phone", phone);
 data.append("consultType", type.value);
 data.append("age", age);
 data.append("contactTime", contactTime);
-data.append("message", "");
+data.append("message", message);
 data.append("consent", "yes");
 
 fetch(scriptUrl, {
