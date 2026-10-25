@@ -68,23 +68,30 @@ button,input,select,textarea{
   z-index:5;
   display:flex;
   align-items:center;
-  gap:9px;
-  font-size:15px;
-  font-weight:800;
-  color:#3b3b35;
+  gap:12px;
+  min-height:34px;
 }
 
-.kb-mark{
-  font-size:23px;
-  font-style:italic;
-  font-weight:900;
-  color:#f3b800;
+.kb-logo{
+  display:block;
+  width:150px;
+  height:auto;
+  object-fit:contain;
 }
 
 .brand-line{
   width:1px;
-  height:16px;
-  background:#aaa;
+  height:22px;
+  background:rgba(74,68,61,.35);
+  flex-shrink:0;
+}
+
+.brand-title{
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:-0.3px;
+  color:#514b45;
+  white-space:nowrap;
 }
 
 .hero-copy{
@@ -445,12 +452,23 @@ textarea:focus{
   }
 
   .brand{
-    font-size:12px;
-  }
+  gap:10px;
+  min-height:36px;
+}
 
-  .kb-mark{
-    font-size:19px;
-  }
+.kb-logo{
+  width:155px;
+}
+
+.brand-line{
+  height:21px;
+}
+
+.brand-title{
+  font-size:13px;
+  font-weight:700;
+  color:#514b45;
+}
 
   .hero-copy{
     width:66%;
@@ -542,12 +560,15 @@ textarea:focus{
   <!-- 상단 -->
   <section class="hero">
 
-    <div class="brand">
-      <span class="kb-mark">Kb</span>
-      <span>KB손해보험</span>
-      <span class="brand-line"></span>
-      <span>보험상담</span>
-    </div>
+   <div class="brand">
+  <img
+    class="kb-logo"
+    src="/kb-insurance-logo-ko.png"
+    alt="KB손해보험"
+  >
+  <span class="brand-line"></span>
+  <span class="brand-title">보험상담</span>
+   </div>
 
     <div class="hero-copy">
 
