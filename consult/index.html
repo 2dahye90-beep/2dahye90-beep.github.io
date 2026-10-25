@@ -1,782 +1,844 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#ffca05">
-
-<title>KB손해보험 | 보험상담</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KB손해보험 보험상담</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
-  background:#fffaf0;
-  color:#222;
-  font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR",
-  "Apple SD Gothic Neo",Arial,sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,
+  "Pretendard","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;
+  color:#181818;
+  background:#f6f6f6;
 }
 
-.wrap{
-  max-width:680px;
+button,input,select,textarea{
+  font:inherit;
+}
+
+.page{
+  width:100%;
+  max-width:760px;
   margin:0 auto;
-  min-height:100vh;
   background:#fff;
+  min-height:100vh;
 }
 
-header{
-  padding:22px 22px 18px;
-  background:#fff;
-  border-bottom:1px solid #eee;
+
+/* =========================
+   상단 HERO
+========================= */
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  min-height:500px;
+  padding:30px 28px 28px;
+  background:
+    radial-gradient(circle at 95% 8%,
+      rgba(255,211,35,.42) 0,
+      rgba(255,211,35,.10) 32%,
+      transparent 52%),
+    linear-gradient(145deg,#fffdf6 0%,#fff8d9 100%);
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:250px;
+  height:250px;
+  border-radius:50%;
+  background:rgba(255,214,44,.12);
+  right:-100px;
+  top:-90px;
 }
 
 .brand{
-  font-size:18px;
-  font-weight:800;
-  color:#5b4a00;
-}
-
-.hero{
-  padding:42px 24px 32px;
-  text-align:center;
-  background:
-    linear-gradient(180deg,#fff6d7 0%,#fffaf0 70%,#fff 100%);
-}
-
-.kb{
+  position:relative;
+  z-index:5;
+  display:flex;
+  align-items:center;
+  gap:9px;
   font-size:15px;
   font-weight:800;
-  color:#866600;
-  margin-bottom:14px;
+  color:#3b3b35;
+}
+
+.kb-mark{
+  font-size:23px;
+  font-style:italic;
+  font-weight:900;
+  color:#f3b800;
+}
+
+.brand-line{
+  width:1px;
+  height:16px;
+  background:#aaa;
+}
+
+.hero-copy{
+  position:relative;
+  z-index:4;
+  width:58%;
+  padding-top:38px;
 }
 
 .hero h1{
   margin:0;
-  font-size:32px;
-  line-height:1.35;
-  letter-spacing:-1.3px;
+  font-size:38px;
+  line-height:1.27;
+  letter-spacing:-1.8px;
 }
 
 .hero h1 strong{
-  color:#e87900;
-}
-
-.hero p{
-  margin:18px auto 0;
-  max-width:500px;
-  font-size:16px;
-  line-height:1.7;
-  color:#555;
-}
-
-.badge{
-  display:inline-block;
-  margin-top:22px;
-  padding:9px 15px;
-  border-radius:999px;
-  background:#fff;
-  border:1px solid #f0d57b;
-  font-size:14px;
-  font-weight:700;
-}
-
-.section{
-  padding:32px 22px;
-}
-
-.section h2{
-  margin:0 0 8px;
-  font-size:24px;
-  letter-spacing:-.8px;
-}
-
-.section-desc{
-  margin:0 0 24px;
-  color:#666;
-  line-height:1.6;
-}
-
-.cards{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-
-.card{
   position:relative;
+  display:inline;
+  font-weight:900;
 }
 
-.card input{
+.hero h1 strong::after{
+  content:"";
   position:absolute;
-  opacity:0;
-  pointer-events:none;
+  z-index:-1;
+  left:0;
+  right:0;
+  bottom:2px;
+  height:10px;
+  border-radius:10px;
+  background:#ffd324;
 }
 
-.card label{
-  display:block;
-  height:100%;
-  padding:20px 14px;
-  border:2px solid #eee;
-  border-radius:18px;
-  background:#fff;
-  cursor:pointer;
-  transition:.15s;
-}
-
-.card input:checked + label{
-  border-color:#ffc400;
-  background:#fff8d9;
-  box-shadow:0 5px 18px rgba(255,190,0,.16);
-}
-
-.icon{
-  font-size:29px;
-  margin-bottom:10px;
-}
-
-.card-title{
-  font-weight:800;
-  font-size:17px;
-  margin-bottom:6px;
-}
-
-.card-desc{
-  font-size:13px;
-  color:#666;
-  line-height:1.45;
-}
-
-.notice{
-  margin-top:24px;
-  padding:18px;
-  border-radius:16px;
-  background:#fafafa;
-  font-size:14px;
-  line-height:1.7;
+.hero-description{
+  margin:25px 0 0;
+  font-size:16px;
+  line-height:1.75;
   color:#555;
 }
 
-.cta{
+.consultant{
+  position:absolute;
+  z-index:2;
+  right:-35px;
+  bottom:0;
+  width:48%;
+  max-width:350px;
+}
+
+.consultant img{
   display:block;
   width:100%;
-  margin-top:24px;
-  border:0;
-  border-radius:17px;
-  padding:18px;
-  background:#ffc400;
-  color:#111;
-  font-size:18px;
-  font-weight:900;
-  cursor:pointer;
+  height:auto;
 }
 
-.cta:active{
-  transform:scale(.99);
+.hero-menu{
+  position:absolute;
+  z-index:6;
+  left:28px;
+  bottom:28px;
+  width:54%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
 }
 
-.form-section{
-  display:none;
-  padding:32px 22px 45px;
+.hero-menu div{
+  min-height:48px;
+  padding:10px 9px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  border:1px solid rgba(224,194,85,.28);
+  border-radius:15px;
+  background:rgba(255,255,255,.90);
+  box-shadow:0 6px 18px rgba(82,63,0,.06);
+  font-size:13px;
+  font-weight:800;
 }
 
-.form-section.active{
+
+/* =========================
+   상담 신청 FORM
+========================= */
+
+.form-wrap{
+  padding:30px 22px 45px;
+  background:
+    linear-gradient(180deg,#fffdf8 0%,#fff 180px);
+}
+
+.form-card{
+  position:relative;
+  padding:30px 25px;
+  border:1px solid #eee9da;
+  border-radius:28px;
+  background:#fff;
+  box-shadow:0 15px 45px rgba(83,69,18,.07);
+}
+
+.form-title{
+  margin:0;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:28px;
+  letter-spacing:-1px;
+}
+
+.form-title::before{
+  content:"";
   display:block;
+  width:7px;
+  height:36px;
+  border-radius:10px;
+  background:#ffd324;
+}
+
+.form-subtitle{
+  margin:10px 0 28px 19px;
+  color:#707070;
+  font-size:15px;
 }
 
 .field{
   margin-bottom:20px;
 }
 
-.field label{
+.field label.title{
   display:block;
   margin-bottom:9px;
-  font-weight:800;
   font-size:15px;
+  font-weight:800;
 }
 
-.field input,
-.field select,
-.field textarea{
+.input,
+select,
+textarea{
   width:100%;
-  padding:15px 14px;
-  border:1px solid #ddd;
-  border-radius:13px;
+  border:1px solid #dedede;
+  border-radius:15px;
   background:#fff;
-  font-size:16px;
+  color:#222;
   outline:none;
+  transition:.2s;
 }
 
-.field input:focus,
-.field select:focus,
-.field textarea:focus{
-  border-color:#e9b500;
+.input,
+select{
+  height:58px;
+  padding:0 17px;
 }
 
-.field textarea{
-  min-height:100px;
+textarea{
+  min-height:110px;
+  padding:16px 17px;
   resize:vertical;
+  line-height:1.6;
+}
+
+.input:focus,
+select:focus,
+textarea:focus{
+  border-color:#e9bd00;
+  box-shadow:0 0 0 3px rgba(255,211,36,.15);
+}
+
+::placeholder{
+  color:#aaa;
+}
+
+
+/* =========================
+   궁금한 내용
+========================= */
+
+.inquiry-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.inquiry{
+  display:block;
+  cursor:pointer;
+}
+
+.inquiry input{
+  display:none;
+}
+
+.inquiry span{
+  position:relative;
+  min-height:66px;
+  display:flex;
+  align-items:center;
+  padding:11px 12px;
+  border:1px solid #e4e4e4;
+  border-radius:15px;
+  background:#fff;
+  font-size:13px;
+  font-weight:750;
+  line-height:1.35;
+  transition:.18s ease;
+}
+
+.inquiry input:checked + span{
+  border:2px solid #f2c300;
+  background:#fff9dc;
+  color:#111;
+  box-shadow:0 5px 15px rgba(255,204,0,.12);
+}
+
+.inquiry input:checked + span::after{
+  content:"✓";
+  margin-left:auto;
+  padding-left:5px;
+  color:#b88c00;
+  font-weight:900;
+}
+
+
+/* =========================
+   개인정보
+========================= */
+
+.privacy{
+  margin-top:24px;
+  padding:18px;
+  border-radius:17px;
+  background:#faf8f2;
+}
+
+.privacy-title{
+  font-size:15px;
+  font-weight:900;
+  margin-bottom:8px;
+}
+
+.privacy p{
+  margin:0;
+  color:#666;
+  font-size:12px;
+  line-height:1.65;
 }
 
 .consent{
-  padding:17px;
-  background:#f8f8f8;
-  border-radius:14px;
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  margin-top:15px;
+  cursor:pointer;
   font-size:13px;
-  line-height:1.65;
-  color:#555;
+  line-height:1.5;
 }
 
-.consent-check{
-  margin-top:13px;
-  font-size:15px;
-  font-weight:700;
-  color:#222;
+.consent input{
+  width:19px;
+  height:19px;
+  margin-top:0;
+  accent-color:#f4c400;
 }
+
+
+/* =========================
+   버튼
+========================= */
 
 .error{
   display:none;
-  margin-top:15px;
-  color:#c62828;
-  font-size:14px;
+  margin:15px 0 0;
+  padding:12px;
+  border-radius:12px;
+  background:#fff1f1;
+  color:#c42d2d;
+  font-size:13px;
   font-weight:700;
 }
 
+.submit-btn{
+  width:100%;
+  height:65px;
+  margin-top:22px;
+  border:0;
+  border-radius:19px;
+  background:linear-gradient(135deg,#ffd51d,#ffc400);
+  color:#111;
+  font-size:19px;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:0 9px 24px rgba(234,181,0,.20);
+}
+
+.submit-btn:active{
+  transform:scale(.99);
+}
+
+
+/* =========================
+   성공 화면
+========================= */
+
 .success{
   display:none;
-  padding:80px 24px;
+  padding:70px 25px;
   text-align:center;
 }
 
 .success-icon{
-  width:76px;
-  height:76px;
+  width:75px;
+  height:75px;
   margin:0 auto 22px;
-  border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#ffc400;
-  font-size:38px;
+  border-radius:50%;
+  background:#fff6c7;
+  font-size:36px;
 }
 
 .success h2{
-  font-size:28px;
-  margin:0 0 15px;
+  margin:0 0 12px;
+  font-size:27px;
 }
 
 .success p{
+  margin:0;
   color:#666;
   line-height:1.7;
 }
 
-footer{
-  padding:26px 22px;
-  background:#fafafa;
-  border-top:1px solid #eee;
-  font-size:12px;
+
+/* =========================
+   하단
+========================= */
+
+.footer{
+  padding:24px;
+  background:#f7f7f7;
+  color:#8a8a8a;
+  font-size:11px;
   line-height:1.7;
-  color:#777;
 }
 
-@media(max-width:420px){
-  .hero h1{font-size:29px}
-  .cards{grid-template-columns:1fr}
-}
 
-  /* 궁금한 내용 선택 카드 */
-.inquiry-options {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 12px;
-  margin-bottom: 14px;
-}
+/* =========================
+   모바일
+========================= */
 
-.inquiry-option {
-  display: block;
-  cursor: pointer;
-}
+@media(max-width:600px){
 
-.inquiry-option input {
-  display: none;
-}
-
-.inquiry-option span {
-  display: flex;
-  align-items: center;
-  min-height: 58px;
-  padding: 12px 14px;
-  box-sizing: border-box;
-
-  background: #ffffff;
-  border: 1px solid #e5e5e5;
-  border-radius: 16px;
-
-  font-size: 14px;
-  font-weight: 600;
-  color: #333;
-
-  transition: all 0.2s ease;
-}
-
-/* 선택했을 때 KB 옐로우 */
-.inquiry-option input:checked + span {
-  background: #fff7d6;
-  border: 2px solid #ffcc00;
-  color: #111;
-  box-shadow: 0 4px 12px rgba(255, 204, 0, 0.15);
-}
-
-/* 선택 체크 표시 */
-.inquiry-option input:checked + span::after {
-  content: "✓";
-  margin-left: auto;
-  font-weight: 800;
-  color: #c99a00;
-}
-
-/* 추가 문의 입력창 */
-#memo {
-  margin-top: 4px;
-}
-
-/* ===== 프리미엄 상단 디자인 ===== */
-
-.premium-hero {
-  position: relative;
-  overflow: hidden;
-  margin: 0;
-  padding: 44px 22px 32px;
-  text-align: left;
-  background:
-    radial-gradient(circle at 92% 12%, rgba(255,204,0,.25), transparent 38%),
-    linear-gradient(145deg, #fffdf7 0%, #fff7d6 100%);
-  border-bottom: 1px solid #f3e6b3;
-}
-
-.premium-hero::before {
-  content: "";
-  position: absolute;
-  width: 210px;
-  height: 210px;
-  border-radius: 50%;
-  right: -100px;
-  top: -90px;
-  background: rgba(255,204,0,.10);
-}
-
-.hero-copy {
-  position: relative;
-  z-index: 1;
-}
-
-.premium-hero h1 {
-  margin: 0 0 18px;
-  font-size: 30px;
-  line-height: 1.38;
-  letter-spacing: -1.4px;
-  color: #171717;
-}
-
-.premium-hero h1 strong {
-  position: relative;
-  display: inline;
-  font-weight: 800;
-  background: linear-gradient(
-    transparent 72%,
-    #ffd928 72%
-  );
-}
-
-.premium-hero p {
-  margin: 0;
-  font-size: 15px;
-  line-height: 1.8;
-  color: #5f5f5f;
-}
-
-.hero-mini-menu {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 9px;
-  margin-top: 25px;
-}
-
-.hero-mini-menu span {
-  display: flex;
-  align-items: center;
-  min-height: 46px;
-  padding: 10px 12px;
-  box-sizing: border-box;
-  background: rgba(255,255,255,.82);
-  border: 1px solid rgba(222,190,74,.30);
-  border-radius: 14px;
-  font-size: 13px;
-  font-weight: 700;
-  color: #292929;
-  box-shadow: 0 5px 18px rgba(77,60,0,.05);
-}
-
-@media (max-width:420px) {
-  .premium-hero {
-    padding: 38px 20px 28px;
+  .hero{
+    min-height:470px;
+    padding:23px 19px 22px;
   }
 
-  .premium-hero h1 {
-    font-size: 28px;
+  .brand{
+    font-size:12px;
+  }
+
+  .kb-mark{
+    font-size:19px;
+  }
+
+  .hero-copy{
+    width:66%;
+    padding-top:28px;
+  }
+
+  .hero h1{
+    font-size:28px;
+    line-height:1.32;
+    letter-spacing:-1.3px;
+  }
+
+  .hero-description{
+    margin-top:18px;
+    font-size:13px;
+    line-height:1.7;
+  }
+
+  .consultant{
+    width:49%;
+    right:-36px;
+    bottom:55px;
+  }
+
+  .hero-menu{
+    left:19px;
+    bottom:22px;
+    width:62%;
+    gap:7px;
+  }
+
+  .hero-menu div{
+    min-height:44px;
+    padding:8px 5px;
+    font-size:11px;
+    border-radius:13px;
+  }
+
+  .form-wrap{
+    padding:20px 13px 35px;
+  }
+
+  .form-card{
+    padding:25px 18px;
+    border-radius:23px;
+  }
+
+  .form-title{
+    font-size:24px;
+  }
+
+  .form-subtitle{
+    margin-left:18px;
+    font-size:13px;
+  }
+
+  .inquiry-grid{
+    gap:8px;
+  }
+
+  .inquiry span{
+    min-height:62px;
+    padding:10px;
+    font-size:12px;
   }
 }
-  
+
+@media(max-width:360px){
+
+  .hero h1{
+    font-size:25px;
+  }
+
+  .hero-description{
+    font-size:12px;
+  }
+
+  .consultant{
+    width:46%;
+  }
+}
 </style>
 </head>
 
 <body>
 
-<div class="wrap" id="page">
-<section class="hero premium-hero">
+<div class="page" id="page">
 
-  <div class="hero-copy">
+  <!-- 상단 -->
+  <section class="hero">
 
-    <div class="hero-brand">
+    <div class="brand">
       <span class="kb-mark">Kb</span>
       <span>KB손해보험</span>
-      <i></i>
+      <span class="brand-line"></span>
       <span>보험상담</span>
     </div>
 
-    <h1>
-      <strong>내 상황에 맞는 보장,</strong><br>
-      전문 상담으로 안내받아요
-    </h1>
+    <div class="hero-copy">
+
+      <h1>
+        <strong>내 상황에 맞는 보장,</strong><br>
+        전문 상담으로<br>
+        안내받아요
+      </h1>
+
+      <p class="hero-description">
+        보험금 청구부터 기존 보험 점검,<br>
+        신규 가입 상담까지<br>
+        필요한 내용만 편하게 상담해 보세요.
+      </p>
+
+    </div>
+
+    <div class="consultant">
+      <img
+        src="/file_000000003f7081f8aaacc50ed1f594ea.png"
+        alt="보험 상담 안내"
+      >
+    </div>
+
+    <div class="hero-menu">
+      <div>💬 보험 상담</div>
+      <div>🔎 보장 점검</div>
+      <div>📄 보험금 청구</div>
+      <div>👥 신규 가입 상담</div>
+    </div>
+
+  </section>
+
+
+  <!-- 상담 신청 -->
+  <section class="form-wrap" id="consultForm">
+
+    <div class="form-card">
+
+      <h2 class="form-title">1:1 맞춤 상담 신청</h2>
+
+      <p class="form-subtitle">
+        연락드리기 위해 필요한 정보만 입력해 주세요.
+      </p>
+
+
+      <div class="field">
+        <label class="title" for="name">성함</label>
+        <input
+          class="input"
+          id="name"
+          type="text"
+          placeholder="예) 홍길동"
+          autocomplete="name"
+        >
+      </div>
+
+
+      <div class="field">
+        <label class="title" for="phone">연락처</label>
+        <input
+          class="input"
+          id="phone"
+          type="tel"
+          inputmode="numeric"
+          maxlength="13"
+          placeholder="010-1234-5678"
+          autocomplete="tel"
+        >
+      </div>
+
+
+      <div class="field">
+        <label class="title" for="age">연령대</label>
+
+        <select id="age">
+          <option value="">연령대를 선택해 주세요</option>
+          <option value="20대">20대</option>
+          <option value="30대">30대</option>
+          <option value="40대">40대</option>
+          <option value="50대">50대</option>
+          <option value="60대 이상">60대 이상</option>
+        </select>
+      </div>
+
+
+      <div class="field">
+        <label class="title" for="contactTime">
+          연락 가능한 시간
+        </label>
+
+        <select id="contactTime">
+          <option value="">시간대를 선택해 주세요</option>
+          <option value="오전 9시~11시">오전 9시~11시</option>
+          <option value="오전 11시~오후 1시">오전 11시~오후 1시</option>
+          <option value="오후 1시~3시">오후 1시~3시</option>
+          <option value="오후 3시~5시">오후 3시~5시</option>
+          <option value="오후 5시~7시">오후 5시~7시</option>
+          <option value="시간 관계 없음">시간 관계 없음</option>
+        </select>
+      </div>
+
+
+      <div class="field">
+
+        <label class="title">
+          궁금한 내용
+          <span style="font-weight:500;color:#888;">
+            (복수 선택 가능)
+          </span>
+        </label>
+
+        <div class="inquiry-grid">
+
+          <label class="inquiry">
+            <input
+              type="checkbox"
+              name="inquiryType"
+              value="보험금 청구 문의"
+            >
+            <span>📄 보험금 청구 문의</span>
+          </label>
+
+          <label class="inquiry">
+            <input
+              type="checkbox"
+              name="inquiryType"
+              value="가입한 보험 문의"
+            >
+            <span>🔎 가입한 보험 문의</span>
+          </label>
+
+          <label class="inquiry">
+            <input
+              type="checkbox"
+              name="inquiryType"
+              value="보장내용 확인"
+            >
+            <span>🛡️ 보장내용 확인</span>
+          </label>
+
+          <label class="inquiry">
+            <input
+              type="checkbox"
+              name="inquiryType"
+              value="가족 보험 상담"
+            >
+            <span>👨‍👩‍👧 가족 보험 상담</span>
+          </label>
+
+          <label class="inquiry">
+            <input
+              type="checkbox"
+              name="inquiryType"
+              value="보험 가입 상담"
+            >
+            <span>💬 보험 가입 상담</span>
+          </label>
+
+          <label class="inquiry">
+            <input
+              type="checkbox"
+              name="inquiryType"
+              value="기타 문의"
+            >
+            <span>✨ 기타 문의</span>
+          </label>
+
+        </div>
+      </div>
+
+
+      <div class="field">
+        <label class="title" for="memo">
+          추가 문의사항
+          <span style="font-weight:500;color:#888;">
+            (선택)
+          </span>
+        </label>
+
+        <textarea
+          id="memo"
+          placeholder="추가로 궁금한 내용이 있다면 남겨주세요."
+        ></textarea>
+      </div>
+
+
+      <div class="privacy">
+
+        <div class="privacy-title">
+          🔒 개인정보 수집·이용 안내
+        </div>
+
+        <p>
+          수집 항목 : 성함, 연락처, 연령대, 상담 내용,
+          연락 가능 시간 및 문의 내용<br>
+          이용 목적 : 보험 상담 신청 확인 및 상담 연락<br>
+          보유·이용 기간 : 상담 절차 종료 후 3개월 이내 파기<br>
+          동의를 거부할 수 있으나 동의하지 않을 경우
+          상담 신청이 어렵습니다.
+        </p>
+
+        <label class="consent">
+          <input id="consent" type="checkbox">
+          <span>
+            개인정보 수집·이용에 동의합니다.
+          </span>
+        </label>
+
+      </div>
+
+
+      <div class="error" id="errorMessage">
+        필수 내용을 모두 입력하고 궁금한 내용을
+        하나 이상 선택해 주세요.
+      </div>
+
+
+      <button
+        class="submit-btn"
+        type="button"
+        id="submitButton"
+        onclick="submitConsult()"
+      >
+        전문가 상담 신청하기 →
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- 성공 -->
+  <section class="success" id="success">
+
+    <div class="success-icon">✓</div>
+
+    <h2>상담 신청이 접수되었습니다.</h2>
 
     <p>
-      보험금 청구부터 기존 보험 점검,<br>
-      신규 가입 상담까지<br>
-      필요한 내용만 편하게 상담해 보세요.
+      신청해 주셔서 감사합니다.<br>
+      확인 후 연락드리겠습니다.
     </p>
 
-    <div class="hero-mini-menu">
-      <span>💬 보험 상담</span>
-      <span>🔎 보장 점검</span>
-      <span>📄 보험금 청구</span>
-      <span>👥 신규 가입 상담</span>
-    </div>
+  </section>
 
-  </div>
 
-  <div class="hero-person">
-    <div class="person-head">👩🏻‍💼</div>
-    <div class="person-badge">1:1 맞춤 상담</div>
-  </div>
-
-</section>
-
-
-
-<section class="section" id="choice">
-
-  <h2>어떤 상담이 필요하세요?</h2>
-
-  <p class="section-desc">
-    상담받고 싶은 내용을 선택해 주세요.
-  </p>
-
-  <div class="cards">
-
-    <div class="card">
-      <input type="radio" name="consultType"
-      id="claim" value="보험금 청구 문의">
-
-      <label for="claim">
-        <div class="icon">📄</div>
-        <div class="card-title">보험금 청구 문의</div>
-        <div class="card-desc">
-          청구 절차와 필요한 서류가 궁금해요
-        </div>
-      </label>
-    </div>
-
-
-    <div class="card">
-      <input type="radio" name="consultType"
-      id="existing" value="가입한 보험 문의">
-
-      <label for="existing">
-        <div class="icon">🔎</div>
-        <div class="card-title">가입한 보험 문의</div>
-        <div class="card-desc">
-          가입한 보험과 보장내용이 궁금해요
-        </div>
-      </label>
-    </div>
-
-
-    <div class="card">
-      <input type="radio" name="consultType"
-      id="coverage" value="보장내용 확인">
-
-      <label for="coverage">
-        <div class="icon">🛡️</div>
-        <div class="card-title">보장내용 확인</div>
-        <div class="card-desc">
-          현재 보장이 적절한지 확인하고 싶어요
-        </div>
-      </label>
-    </div>
-
-
-    <div class="card">
-      <input type="radio" name="consultType"
-      id="family" value="가족 보험 상담">
-
-      <label for="family">
-        <div class="icon">👨‍👩‍👧</div>
-        <div class="card-title">가족 보험 상담</div>
-        <div class="card-desc">
-          부모님·자녀 보험이 궁금해요
-        </div>
-      </label>
-    </div>
-
-
-    <div class="card">
-      <input type="radio" name="consultType"
-      id="new" value="보험 가입 상담">
-
-      <label for="new">
-        <div class="icon">💬</div>
-        <div class="card-title">보험 가입 상담</div>
-        <div class="card-desc">
-          필요한 보장을 상담받고 싶어요
-        </div>
-      </label>
-    </div>
-
-
-    <div class="card">
-      <input type="radio" name="consultType"
-      id="etc" value="기타 문의">
-
-      <label for="etc">
-        <div class="icon">✨</div>
-        <div class="card-title">기타 문의</div>
-        <div class="card-desc">
-          그 밖의 보험 관련 궁금증이 있어요
-        </div>
-      </label>
-    </div>
-
-  </div>
-
-
-  <div class="notice">
-    🔒 작성하신 내용은 상담을 위해서만 이용됩니다.<br>
-    상담 신청 후 담당 보험설계사가 확인하여 연락드립니다.
-  </div>
-
-  <button class="cta" type="button" onclick="openForm()">
-    간편 상담 신청하기 →
-  </button>
-
-</section>
-
-
-<section class="form-section" id="consultForm">
-
-  <h2>상담 신청</h2>
-
-  <p class="section-desc">
-    연락드리기 위해 필요한 정보만 입력해 주세요.
-  </p>
-
-
-  <div class="field">
-    <label for="name">성함</label>
-    <input id="name" type="text"
-    placeholder="성함을 입력해 주세요">
-  </div>
-
-
-  <div class="field">
-    <label for="phone">연락처</label>
-    <input id="phone" type="tel"
-    inputmode="tel"
-    placeholder="010-0000-0000">
-  </div>
-
-
-  <div class="field">
-    <label for="age">연령대</label>
-
-    <select id="age">
-      <option value="">연령대를 선택해 주세요</option>
-      <option>20대</option>
-      <option>30대</option>
-      <option>40대</option>
-      <option>50대</option>
-      <option>60대 이상</option>
-    </select>
-  </div>
-
-
-  <div class="field">
-    <label for="contactTime">연락 가능한 시간</label>
-
-    <select id="contactTime">
-      <option value="">시간대를 선택해 주세요</option>
-      <option>오전 9시~11시</option>
-      <option>오전 11시~오후 1시</option>
-      <option>오후 1시~3시</option>
-      <option>오후 3시~5시</option>
-      <option>오후 5시~7시</option>
-      <option>시간 관계 없음</option>
-    </select>
-  </div>
-
-
- <div class="field">
-  <label>궁금한 내용 <span style="color:#888;">(복수 선택 가능)</span></label>
-
-  <div class="inquiry-options">
-
-    <label class="inquiry-option">
-      <input type="checkbox" name="inquiryType" value="보험금 청구 문의">
-      <span>📄 보험금 청구 문의</span>
-    </label>
-
-    <label class="inquiry-option">
-      <input type="checkbox" name="inquiryType" value="가입한 보험 문의">
-      <span>🔎 가입한 보험 문의</span>
-    </label>
-
-    <label class="inquiry-option">
-      <input type="checkbox" name="inquiryType" value="보장내용 확인">
-      <span>🛡️ 보장내용 확인</span>
-    </label>
-
-    <label class="inquiry-option">
-      <input type="checkbox" name="inquiryType" value="가족 보험 상담">
-      <span>👨‍👩‍👧 가족 보험 상담</span>
-    </label>
-
-    <label class="inquiry-option">
-      <input type="checkbox" name="inquiryType" value="보험 가입 상담">
-      <span>💬 보험 가입 상담</span>
-    </label>
-
-    <label class="inquiry-option">
-      <input type="checkbox" name="inquiryType" value="기타 문의">
-      <span>✨ 기타 문의</span>
-    </label>
-
-  </div>
-
-  <textarea
-    id="memo"
-    placeholder="추가로 궁금한 내용이 있다면 남겨주세요"
-  ></textarea>
- </div>
-
-
-  <div class="consent">
-
-    <strong>개인정보 수집·이용 안내</strong><br><br>
-
-    수집 항목 : 성함, 연락처, 연령대,
-    상담 유형, 연락 가능 시간 및 문의 내용<br>
-
-    이용 목적 : 보험 상담 신청 확인 및 상담 연락<br>
-
-    보유·이용 기간 : 상담 절차 종료 후
-    3개월 이내 파기<br><br>
-
-    개인정보 수집·이용에 동의하지 않을 수 있으며,
-    동의하지 않을 경우 상담 신청이 어렵습니다.
-
-    <div class="consent-check">
-      <label>
-        <input type="checkbox" id="consent">
-        개인정보 수집·이용에 동의합니다.
-      </label>
-    </div>
-
-  </div>
-
-
-  <div class="error" id="errorMessage">
-    입력하지 않은 항목이 있습니다.
-  </div>
-
-
-  <button class="cta" type="button" onclick="submitConsult()">
-    상담 신청 완료하기
-  </button>
-
-</section>
-
-
-<section class="success" id="success">
-
-  <div class="success-icon">✓</div>
-
-  <h2>상담 신청이 완료되었습니다</h2>
-
-  <p>
-    신청 내용을 확인한 후<br>
-    연락 가능한 시간에 안내드리겠습니다.
-  </p>
-
-</section>
-
-
-<footer>
-
-  KB손해보험 보험설계사 상담 페이지<br>
-  상담 신청은 무료이며 작성하신 정보는
-  상담 목적으로만 이용됩니다.<br><br>
-
-  ※ 본 페이지는 KB손해보험 고객센터가 아닌
-  보험설계사의 상담 신청 페이지입니다.
-
-</footer>
+  <footer class="footer">
+    KB손해보험 보험설계사 상담 페이지<br>
+    상담 신청을 위해 작성하신 정보는 상담 목적으로만 이용됩니다.
+  </footer>
 
 </div>
 
 
 <script>
 
-function openForm(){
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbxOIYIR_9FrkCyBECSRNBQ7PgKOp3jR_51jaqUInY9W1hXx924C-H6_aaqVcFZzQNYS/exec";
 
-  const selected =
-    document.querySelector(
-      'input[name="consultType"]:checked'
-    );
 
-  if(!selected){
-    alert("상담받고 싶은 내용을 선택해 주세요.");
-    return;
+/* 전화번호 자동 하이픈 */
+const phoneInput = document.getElementById("phone");
+
+phoneInput.addEventListener("input", function(){
+
+  let number =
+    this.value.replace(/[^0-9]/g,"").slice(0,11);
+
+  if(number.length <= 3){
+
+    this.value = number;
+
+  }else if(number.length <= 7){
+
+    this.value =
+      number.slice(0,3) + "-" +
+      number.slice(3);
+
+  }else{
+
+    this.value =
+      number.slice(0,3) + "-" +
+      number.slice(3,7) + "-" +
+      number.slice(7);
+
   }
 
-  document
-    .getElementById("consultForm")
-    .classList.add("active");
-
-  document
-    .getElementById("consultForm")
-    .scrollIntoView({
-      behavior:"smooth",
-      block:"start"
-    });
-}
+});
 
 
 function submitConsult(){
-
-  const type =
-    document.querySelector(
-      'input[name="consultType"]:checked'
-    );
 
   const name =
     document.getElementById("name").value.trim();
@@ -789,96 +851,134 @@ function submitConsult(){
 
   const contactTime =
     document.getElementById("contactTime").value;
-const inquiryTypes = Array.from(
-  document.querySelectorAll('input[name="inquiryType"]:checked')
-).map(function(item) {
-  return item.value;
-});
 
-const inquiryText = inquiryTypes.join(", ");
-
-const memo =
-  document.getElementById("memo").value.trim();
-
-const message = [inquiryText, memo]
-  .filter(Boolean)
-  .join(" / ");
   const consent =
     document.getElementById("consent").checked;
+
+  const memo =
+    document.getElementById("memo").value.trim();
+
+  const inquiryTypes =
+    Array.from(
+      document.querySelectorAll(
+        'input[name="inquiryType"]:checked'
+      )
+    ).map(function(item){
+      return item.value;
+    });
 
   const error =
     document.getElementById("errorMessage");
 
 
   if(
-    !type ||
     !name ||
     !phone ||
     !age ||
     !contactTime ||
+    inquiryTypes.length === 0 ||
     !consent
   ){
-    error.style.display="block";
+
+    error.style.display = "block";
+
+    error.scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
     return;
   }
 
-  error.style.display="none";
+
+  error.style.display = "none";
 
 
-  const scriptUrl =
-  "https://script.google.com/macros/s/AKfycbzpFgCXf7jj3Q-VhgKqHfbq75ILWRq8eK6VUCjIrDFEqnzfizVGVAi0ApkUCOMvJbH8/exec";
-
-const data = new URLSearchParams();
-
-data.append("name", name);
-data.append("phone", phone);
-data.append("consultType", type.value);
-data.append("age", age);
-data.append("contactTime", contactTime);
-data.append("message", message);
-data.append("consent", "yes");
-
-fetch(scriptUrl, {
-  method: "POST",
-  body: data,
-  mode: "no-cors"
-});
+  const inquiryText =
+    inquiryTypes.join(", ");
 
 
-  document.getElementById("choice").style.display="none";
-  document.getElementById("consultForm").style.display="none";
+  const message =
+    [
+      "궁금한 내용: " + inquiryText,
+      memo ? "추가 문의: " + memo : ""
+    ]
+    .filter(Boolean)
+    .join(" / ");
 
-  const success =
-    document.getElementById("success");
 
-  success.style.display="block";
+  const data =
+    new URLSearchParams();
 
-  success.scrollIntoView({
-    behavior:"smooth",
-    block:"start"
+  data.append("name",name);
+  data.append("phone",phone);
+
+  /*
+    기존 Apps Script와 호환을 위해
+    첫 번째 선택 항목을 consultType으로 전송
+  */
+  data.append(
+    "consultType",
+    inquiryTypes[0]
+  );
+
+  data.append("age",age);
+  data.append("contactTime",contactTime);
+  data.append("message",message);
+  data.append("consent","yes");
+
+
+  const button =
+    document.getElementById("submitButton");
+
+  button.disabled = true;
+  button.textContent = "접수 중입니다...";
+
+
+  fetch(SCRIPT_URL,{
+    method:"POST",
+    body:data,
+    mode:"no-cors"
+  })
+  .then(function(){
+
+    showSuccess();
+
+  })
+  .catch(function(){
+
+    /*
+      no-cors 환경에서는 응답 확인이 제한되므로
+      기존 방식과 동일하게 접수 화면을 처리
+    */
+
+    showSuccess();
+
   });
 
 }
 
 
-const phoneInput = document.getElementById("phone");
+function showSuccess(){
 
-phoneInput.addEventListener("input", function () {
-  let number = this.value.replace(/[^0-9]/g, "").slice(0, 11);
+  document.getElementById("consultForm")
+    .style.display = "none";
 
-  if (number.length <= 3) {
-    this.value = number;
-  } else if (number.length <= 7) {
-    this.value = number.slice(0, 3) + "-" + number.slice(3);
-  } else {
-    this.value =
-      number.slice(0, 3) + "-" +
-      number.slice(3, 7) + "-" +
-      number.slice(7);
-  }
-});
+  document.querySelector(".hero")
+    .style.display = "none";
+
+  document.getElementById("success")
+    .style.display = "block";
+
+  document.getElementById("success")
+    .scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
+}
 
 </script>
 
 </body>
-                  </html>
+</html>
